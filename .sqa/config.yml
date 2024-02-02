@@ -1,0 +1,42 @@
+config:
+  credentials: []
+  project_repos:
+    codebase.helmholtz.cloud/m-team/tools/alise:
+      branch: master
+      repo: https://codebase.helmholtz.cloud/m-team/tools/alise
+    github.com/EOSC-synergy/sqaaas-tooling:
+      branch: release/2.0.0
+      repo: https://github.com/EOSC-synergy/sqaaas-tooling
+environment:
+  JPL_DOCKERFORCEBUILD: enabled
+  JPL_KEEPGOING: enabled
+sqa_criteria:
+  QC.Acc:
+    repos:
+      codebase.helmholtz.cloud/m-team/tools/alise git:
+        commands:
+        - /usr/bin/env sh .sqa/script.silly-charcoal-abyssinian.sh
+        container: qc.acc_homey-cornflower-bear
+  QC.Doc:
+    repos:
+      codebase.helmholtz.cloud/m-team/tools/alise find_doc_files.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.gamy-tomato-eleuth.sh
+        container: qc.doc_pasty-xanthic-dormouse
+      codebase.helmholtz.cloud/m-team/tools/alise git:
+        commands:
+        - /usr/bin/env sh .sqa/script.queasy-chocolate-coyote.sh
+        container: qc.doc_beady-mauve-kingfisher
+  QC.Lic:
+    repos:
+      codebase.helmholtz.cloud/m-team/tools/alise licensee:
+        commands:
+        - /usr/bin/env sh .sqa/script.slaphappy-malachite-dragon.sh
+        container: qc.lic_boozy-crimson-husky
+  QC.Ver:
+    repos:
+      codebase.helmholtz.cloud/m-team/tools/alise get_git_tags.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.freaky-eggplant-dolphin.sh
+        container: qc.ver_snippy-thistle-horse
+timeout: 5400
