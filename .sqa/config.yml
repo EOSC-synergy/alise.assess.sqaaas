@@ -15,28 +15,28 @@ sqa_criteria:
     repos:
       codebase.helmholtz.cloud/m-team/tools/alise git:
         commands:
-        - /usr/bin/env sh .sqa/script.silly-charcoal-abyssinian.sh
-        container: qc.acc_homey-cornflower-bear
+        - /usr/bin/env sh .sqa/script.lovely-tangerine-oyster.sh
+        container: qc.acc_shaky-olivine-sloth
   QC.Doc:
     repos:
       codebase.helmholtz.cloud/m-team/tools/alise find_doc_files.py:
         commands:
-        - /usr/bin/env sh .sqa/script.gamy-tomato-eleuth.sh
-        container: qc.doc_pasty-xanthic-dormouse
+        - /usr/bin/env sh .sqa/script.muggy-taupe-bird.sh
+        container: qc.doc_paltry-zucchini-quetzal
       codebase.helmholtz.cloud/m-team/tools/alise git:
         commands:
-        - /usr/bin/env sh .sqa/script.queasy-chocolate-coyote.sh
-        container: qc.doc_beady-mauve-kingfisher
+        - /usr/bin/env sh .sqa/script.sloppy-cerise-discus.sh
+        container: qc.doc_pasty-olivine-frog
   QC.Lic:
     repos:
       codebase.helmholtz.cloud/m-team/tools/alise licensee:
         commands:
-        - /usr/bin/env sh .sqa/script.slaphappy-malachite-dragon.sh
-        container: qc.lic_boozy-crimson-husky
+        - /usr/bin/env sh .sqa/script.bluesy-saffron-snail.sh
+        container: qc.lic_sickly-crimson-drever
   QC.Ver:
     repos:
       codebase.helmholtz.cloud/m-team/tools/alise get_git_tags.py:
         commands:
-        - /usr/bin/env sh .sqa/script.freaky-eggplant-dolphin.sh
-        container: qc.ver_snippy-thistle-horse
+        - /usr/bin/env sh .sqa/script.homely-ochre-frog.sh
+        container: qc.ver_snoopy-khaki-koala
 timeout: 5400
