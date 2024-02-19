@@ -2,7 +2,7 @@ config:
   credentials: []
   project_repos:
     codebase.helmholtz.cloud/m-team/tools/alise:
-      branch: master
+      branch: add-compliance
       repo: https://codebase.helmholtz.cloud/m-team/tools/alise
     github.com/EOSC-synergy/sqaaas-tooling:
       branch: release/2.0.0
@@ -15,28 +15,28 @@ sqa_criteria:
     repos:
       codebase.helmholtz.cloud/m-team/tools/alise git:
         commands:
-        - /usr/bin/env sh .sqa/script.lovely-tangerine-oyster.sh
-        container: qc.acc_shaky-olivine-sloth
+        - /usr/bin/env sh .sqa/script.hazy-mauve-markhor.sh
+        container: qc.acc_pasty-chocolate-quail
   QC.Doc:
     repos:
       codebase.helmholtz.cloud/m-team/tools/alise find_doc_files.py:
         commands:
-        - /usr/bin/env sh .sqa/script.muggy-taupe-bird.sh
-        container: qc.doc_paltry-zucchini-quetzal
+        - /usr/bin/env sh .sqa/script.ugly-cyan-monster.sh
+        container: qc.doc_homey-chocolate-markhor
       codebase.helmholtz.cloud/m-team/tools/alise git:
         commands:
-        - /usr/bin/env sh .sqa/script.sloppy-cerise-discus.sh
-        container: qc.doc_pasty-olivine-frog
+        - /usr/bin/env sh .sqa/script.nippy-rose-earwig.sh
+        container: qc.doc_dorky-ochre-salamander
   QC.Lic:
     repos:
       codebase.helmholtz.cloud/m-team/tools/alise licensee:
         commands:
-        - /usr/bin/env sh .sqa/script.bluesy-saffron-snail.sh
-        container: qc.lic_sickly-crimson-drever
+        - /usr/bin/env sh .sqa/script.muzzy-orchid-camel.sh
+        container: qc.lic_cranky-pumpkin-capuchin
   QC.Ver:
     repos:
       codebase.helmholtz.cloud/m-team/tools/alise get_git_tags.py:
         commands:
-        - /usr/bin/env sh .sqa/script.homely-ochre-frog.sh
-        container: qc.ver_snoopy-khaki-koala
+        - /usr/bin/env sh .sqa/script.squeaky-cardinal-budgerigar.sh
+        container: qc.ver_frumpy-grey-gar
 timeout: 5400
