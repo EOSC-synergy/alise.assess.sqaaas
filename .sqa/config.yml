@@ -15,28 +15,28 @@ sqa_criteria:
     repos:
       codebase.helmholtz.cloud/m-team/tools/alise git:
         commands:
-        - /usr/bin/env sh .sqa/script.sickly-cinnamon-spider.sh
-        container: qc.acc_frumpy-dandelion-dugong
+        - /usr/bin/env sh .sqa/script.boozy-amber-kakapo.sh
+        container: qc.acc_homely-rose-rabbit
   QC.Doc:
     repos:
       codebase.helmholtz.cloud/m-team/tools/alise find_doc_files.py:
         commands:
-        - /usr/bin/env sh .sqa/script.shaky-silver-bracke.sh
-        container: qc.doc_nerdy-olivine-earwig
+        - /usr/bin/env sh .sqa/script.trippy-chartreuse-balinese.sh
+        container: qc.doc_beady-copper-cassowary
       codebase.helmholtz.cloud/m-team/tools/alise git:
         commands:
-        - /usr/bin/env sh .sqa/script.slaphappy-cornflower-bandicoot.sh
-        container: qc.doc_snippy-cyan-ray
+        - /usr/bin/env sh .sqa/script.stinky-champagne-vole.sh
+        container: qc.doc_gloppy-firebrick-harrier
   QC.Lic:
     repos:
       codebase.helmholtz.cloud/m-team/tools/alise licensee:
         commands:
-        - /usr/bin/env sh .sqa/script.chummy-cardinal-bat.sh
-        container: qc.lic_sleazy-tomato-slug
+        - /usr/bin/env sh .sqa/script.flaky-cerise-tamarin.sh
+        container: qc.lic_leaky-russet-orangutan
   QC.Ver:
     repos:
       codebase.helmholtz.cloud/m-team/tools/alise get_git_tags.py:
         commands:
-        - /usr/bin/env sh .sqa/script.pokey-denim-kakapo.sh
-        container: qc.ver_trippy-yellow-toad
+        - /usr/bin/env sh .sqa/script.beady-pear-binturong.sh
+        container: qc.ver_shabby-beige-chameleon
 timeout: 5400
