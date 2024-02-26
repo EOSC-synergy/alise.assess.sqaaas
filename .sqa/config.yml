@@ -5,7 +5,7 @@ config:
       branch: master
       repo: https://codebase.helmholtz.cloud/m-team/tools/alise
     github.com/EOSC-synergy/sqaaas-tooling:
-      branch: release/2.0.0
+      branch: feature/fair-epos-prototype
       repo: https://github.com/EOSC-synergy/sqaaas-tooling
 environment:
   JPL_DOCKERFORCEBUILD: enabled
@@ -15,28 +15,28 @@ sqa_criteria:
     repos:
       codebase.helmholtz.cloud/m-team/tools/alise git:
         commands:
-        - /usr/bin/env sh .sqa/script.boozy-amber-kakapo.sh
-        container: qc.acc_homely-rose-rabbit
+        - /usr/bin/env sh .sqa/script.messy-ochre-mist.sh
+        container: qc.acc_shaky-ochre-quoll
   QC.Doc:
     repos:
       codebase.helmholtz.cloud/m-team/tools/alise find_doc_files.py:
         commands:
-        - /usr/bin/env sh .sqa/script.trippy-chartreuse-balinese.sh
-        container: qc.doc_beady-copper-cassowary
+        - /usr/bin/env sh .sqa/script.boozy-cyan-yak.sh
+        container: qc.doc_slimy-cerulean-wolfhound
       codebase.helmholtz.cloud/m-team/tools/alise git:
         commands:
-        - /usr/bin/env sh .sqa/script.stinky-champagne-vole.sh
-        container: qc.doc_gloppy-firebrick-harrier
+        - /usr/bin/env sh .sqa/script.snoopy-smalt-cheetah.sh
+        container: qc.doc_shaky-plum-gharial
   QC.Lic:
     repos:
       codebase.helmholtz.cloud/m-team/tools/alise licensee:
         commands:
-        - /usr/bin/env sh .sqa/script.flaky-cerise-tamarin.sh
-        container: qc.lic_leaky-russet-orangutan
+        - /usr/bin/env sh .sqa/script.cranky-periwinkle-beaver.sh
+        container: qc.lic_squeaky-silver-binturong
   QC.Ver:
     repos:
       codebase.helmholtz.cloud/m-team/tools/alise get_git_tags.py:
         commands:
-        - /usr/bin/env sh .sqa/script.beady-pear-binturong.sh
-        container: qc.ver_shabby-beige-chameleon
+        - /usr/bin/env sh .sqa/script.scanty-bistre-heron.sh
+        container: qc.ver_shaky-rust-cuscus
 timeout: 5400
