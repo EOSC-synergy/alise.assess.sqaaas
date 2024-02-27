@@ -3,9 +3,10 @@ config:
   project_repos:
     codebase.helmholtz.cloud/m-team/tools/alise:
       branch: master
+      credential_tmp: true
       repo: https://codebase.helmholtz.cloud/m-team/tools/alise
     github.com/EOSC-synergy/sqaaas-tooling:
-      branch: feature/fair-epos-prototype
+      branch: feature/enable_pycodestyle
       repo: https://github.com/EOSC-synergy/sqaaas-tooling
 environment:
   JPL_DOCKERFORCEBUILD: enabled
@@ -15,60 +16,64 @@ sqa_criteria:
     repos:
       codebase.helmholtz.cloud/m-team/tools/alise git:
         commands:
-        - /usr/bin/env sh .sqa/script.hazy-puce-wrasse.sh
-        container: qc.acc_hasty-harlequin-javanese
+        - /usr/bin/env sh .sqa/script.freaky-carmine-javanese.sh
+        container: qc.acc_skimpy-yellow-mist
   QC.Doc:
     repos:
       codebase.helmholtz.cloud/m-team/tools/alise find_doc_files.py:
         commands:
-        - /usr/bin/env sh .sqa/script.smelly-crimson-booby.sh
-        container: qc.doc_scaly-buff-turtle
+        - /usr/bin/env sh .sqa/script.breezy-white-bordeaux.sh
+        container: qc.doc_tacky-magnolia-kingfisher
       codebase.helmholtz.cloud/m-team/tools/alise git:
         commands:
-        - /usr/bin/env sh .sqa/script.sloppy-apricot-pinscher.sh
-        container: qc.doc_snoopy-rose-greyhound
+        - /usr/bin/env sh .sqa/script.squirrely-burgundy-kiwi.sh
+        container: qc.doc_wheezy-eggplant-kingfisher
       codebase.helmholtz.cloud/m-team/tools/alise markdownlint:
         commands:
-        - /usr/bin/env sh .sqa/script.greasy-persimmon-yak.sh
-        container: qc.doc_trippy-chartreuse-heron
+        - /usr/bin/env sh .sqa/script.scanty-taupe-beetle.sh
+        container: qc.doc_tasty-bistre-jackal
       codebase.helmholtz.cloud/m-team/tools/alise restructuredtext-lint:
         commands:
-        - /usr/bin/env sh .sqa/script.crappy-yellow-rhinoceros.sh
-        container: qc.doc_tasty-emerald-gar
+        - /usr/bin/env sh .sqa/script.homely-lime-koala.sh
+        container: qc.doc_frumpy-pear-cuttlefish
   QC.Lic:
     repos:
       codebase.helmholtz.cloud/m-team/tools/alise licensee:
         commands:
-        - /usr/bin/env sh .sqa/script.squeaky-charcoal-bird.sh
-        container: qc.lic_stuffy-lemon-shrew
+        - /usr/bin/env sh .sqa/script.shaggy-sapphire-dane.sh
+        container: qc.lic_bluesy-blue-dhole
   QC.Met:
     repos:
       codebase.helmholtz.cloud/m-team/tools/alise cff-converter-python:
         commands:
-        - /usr/bin/env sh .sqa/script.ugly-azure-chipmunk.sh
-        container: qc.met_gloppy-wisteria-chinook
+        - /usr/bin/env sh .sqa/script.homely-crimson-spoonbill.sh
+        container: qc.met_whiny-ecru-reindeer
   QC.Sec:
     repos:
       codebase.helmholtz.cloud/m-team/tools/alise bandit:
         commands:
-        - /usr/bin/env sh .sqa/script.stuffy-celadon-chipmunk.sh
-        container: qc.sec_tasty-olive-cheetah
+        - /usr/bin/env sh .sqa/script.nippy-thistle-setter.sh
+        container: qc.sec_flaky-beige-tuatara
   QC.Sty:
     repos:
       codebase.helmholtz.cloud/m-team/tools/alise flake8:
         commands:
-        - /usr/bin/env sh .sqa/script.paltry-taupe-emu.sh
-        container: qc.sty_shaky-black-cougar
+        - /usr/bin/env sh .sqa/script.skinny-indigo-lizard.sh
+        container: qc.sty_foggy-turquoise-skunk
+      codebase.helmholtz.cloud/m-team/tools/alise pycodestyle:
+        commands:
+        - /usr/bin/env sh .sqa/script.gummy-carmine-tamarin.sh
+        container: qc.sty_skanky-cerulean-bordeaux
   QC.Uni:
     repos:
       codebase.helmholtz.cloud/m-team/tools/alise pytest:
         commands:
-        - /usr/bin/env sh .sqa/script.trippy-amber-snail.sh
-        container: qc.uni_stinky-mauve-mouse
+        - /usr/bin/env sh .sqa/script.homey-carmine-collie.sh
+        container: qc.uni_woozy-pumpkin-rabbit
   QC.Ver:
     repos:
       codebase.helmholtz.cloud/m-team/tools/alise get_git_tags.py:
         commands:
-        - /usr/bin/env sh .sqa/script.wheezy-teal-shark.sh
-        container: qc.ver_gamy-magnolia-insect
+        - /usr/bin/env sh .sqa/script.bumpy-azure-terrier.sh
+        container: qc.ver_shabby-flax-flounder
 timeout: 5400
