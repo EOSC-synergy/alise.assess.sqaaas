@@ -16,64 +16,64 @@ sqa_criteria:
     repos:
       codebase.helmholtz.cloud/m-team/tools/alise git:
         commands:
-        - /usr/bin/env sh .sqa/script.freaky-carmine-javanese.sh
-        container: qc.acc_skimpy-yellow-mist
+        - /usr/bin/env sh .sqa/script.zippy-crimson-lynx.sh
+        container: qc.acc_clammy-eggplant-ostrich
   QC.Doc:
     repos:
       codebase.helmholtz.cloud/m-team/tools/alise find_doc_files.py:
         commands:
-        - /usr/bin/env sh .sqa/script.breezy-white-bordeaux.sh
-        container: qc.doc_tacky-magnolia-kingfisher
+        - /usr/bin/env sh .sqa/script.queasy-magenta-uguisu.sh
+        container: qc.doc_crappy-olivine-paradise
       codebase.helmholtz.cloud/m-team/tools/alise git:
         commands:
-        - /usr/bin/env sh .sqa/script.squirrely-burgundy-kiwi.sh
-        container: qc.doc_wheezy-eggplant-kingfisher
+        - /usr/bin/env sh .sqa/script.greasy-champagne-rabbit.sh
+        container: qc.doc_blurry-cyan-macaque
       codebase.helmholtz.cloud/m-team/tools/alise markdownlint:
         commands:
-        - /usr/bin/env sh .sqa/script.scanty-taupe-beetle.sh
-        container: qc.doc_tasty-bistre-jackal
+        - /usr/bin/env sh .sqa/script.zippy-scarlet-seal.sh
+        container: qc.doc_slimy-dandelion-slug
       codebase.helmholtz.cloud/m-team/tools/alise restructuredtext-lint:
         commands:
-        - /usr/bin/env sh .sqa/script.homely-lime-koala.sh
-        container: qc.doc_frumpy-pear-cuttlefish
+        - /usr/bin/env sh .sqa/script.bumpy-celadon-chihuahua.sh
+        container: qc.doc_crappy-tangerine-eel
   QC.Lic:
     repos:
       codebase.helmholtz.cloud/m-team/tools/alise licensee:
         commands:
-        - /usr/bin/env sh .sqa/script.shaggy-sapphire-dane.sh
-        container: qc.lic_bluesy-blue-dhole
+        - /usr/bin/env sh .sqa/script.slaphappy-denim-mule.sh
+        container: qc.lic_squirrely-cardinal-liger
   QC.Met:
     repos:
       codebase.helmholtz.cloud/m-team/tools/alise cff-converter-python:
         commands:
-        - /usr/bin/env sh .sqa/script.homely-crimson-spoonbill.sh
-        container: qc.met_whiny-ecru-reindeer
+        - /usr/bin/env sh .sqa/script.wimpy-cobalt-turtle.sh
+        container: qc.met_baggy-razzmatazz-turkey
   QC.Sec:
     repos:
       codebase.helmholtz.cloud/m-team/tools/alise bandit:
         commands:
-        - /usr/bin/env sh .sqa/script.nippy-thistle-setter.sh
-        container: qc.sec_flaky-beige-tuatara
+        - /usr/bin/env sh .sqa/script.woolly-ruby-gopher.sh
+        container: qc.sec_lovely-champagne-spider
   QC.Sty:
     repos:
       codebase.helmholtz.cloud/m-team/tools/alise flake8:
         commands:
-        - /usr/bin/env sh .sqa/script.skinny-indigo-lizard.sh
-        container: qc.sty_foggy-turquoise-skunk
+        - /usr/bin/env sh .sqa/script.flabby-harlequin-jaguar.sh
+        container: qc.sty_woolly-chestnut-seal
       codebase.helmholtz.cloud/m-team/tools/alise pycodestyle:
         commands:
-        - /usr/bin/env sh .sqa/script.gummy-carmine-tamarin.sh
-        container: qc.sty_skanky-cerulean-bordeaux
+        - /usr/bin/env sh .sqa/script.cloudy-pumpkin-lizard.sh
+        container: qc.sty_foggy-corn-mole
   QC.Uni:
     repos:
       codebase.helmholtz.cloud/m-team/tools/alise pytest:
         commands:
-        - /usr/bin/env sh .sqa/script.homey-carmine-collie.sh
-        container: qc.uni_woozy-pumpkin-rabbit
+        - /usr/bin/env sh .sqa/script.baggy-brown-mongrel.sh
+        container: qc.uni_thirsty-malachite-frog
   QC.Ver:
     repos:
       codebase.helmholtz.cloud/m-team/tools/alise get_git_tags.py:
         commands:
-        - /usr/bin/env sh .sqa/script.bumpy-azure-terrier.sh
-        container: qc.ver_shabby-flax-flounder
+        - /usr/bin/env sh .sqa/script.leaky-charcoal-turtle.sh
+        container: qc.ver_muzzy-buff-hyena
 timeout: 5400
