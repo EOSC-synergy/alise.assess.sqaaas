@@ -8,9 +8,9 @@
             "url": "https://codebase.helmholtz.cloud/m-team/tools/alise",
             "name": "m-team/tools/alise",
             "tag": "master",
-            "commit_id": "c28fde8f03506b202592bed547d46e002dc4eba6",
+            "commit_id": "9958191271f2b64e7f9464192e05dbd23800f433",
             "is_main_repo": true,
-            "badge_status": "no_badge"
+            "badge_status": "bronze"
         }
     ],
     "report": {
@@ -44,7 +44,7 @@
                                         "git rev-parse --is-inside-work-tree"
                                     ],
                                     "stdout_text": "true",
-                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/3/execution/node/34/log?consoleFull"
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/7/execution/node/34/log?consoleFull"
                                 },
                                 "level": "REQUIRED",
                                 "build_repo": "https://github.com/eosc-synergy/alise.assess.sqaaas"
@@ -67,7 +67,7 @@
             }
         },
         "QC.Doc": {
-            "valid": false,
+            "valid": true,
             "subcriteria": {
                 "QC.Doc06.1": {
                     "description": "Is the software scope outlined in the code repository?",
@@ -95,8 +95,8 @@
                                     "stdout_command": [
                                         "find_doc_files.py --file_type all"
                                     ],
-                                    "stdout_text": "{\"README\": [{\"file_name\": \"README.md\", \"size\": 658}], \"CODE_OF_CONDUCT\": [], \"CONTRIBUTING\": []}",
-                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/3/execution/node/43/log?consoleFull"
+                                    "stdout_text": "{\"README\": [{\"file_name\": \"README.md\", \"size\": 658}], \"CODE_OF_CONDUCT\": [{\"file_name\": \"CODE_OF_CONDUCT\", \"size\": 48}], \"CONTRIBUTING\": [{\"file_name\": \"CONTRIBUTING\", \"size\": 180}]}",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/7/execution/node/43/log?consoleFull"
                                 },
                                 "level": "REQUIRED",
                                 "build_repo": "https://github.com/eosc-synergy/alise.assess.sqaaas"
@@ -113,8 +113,18 @@
                                         "size": 658
                                     }
                                 ],
-                                "CODE_OF_CONDUCT": [],
-                                "CONTRIBUTING": []
+                                "CODE_OF_CONDUCT": [
+                                    {
+                                        "file_name": "CODE_OF_CONDUCT",
+                                        "size": 48
+                                    }
+                                ],
+                                "CONTRIBUTING": [
+                                    {
+                                        "file_name": "CONTRIBUTING",
+                                        "size": 180
+                                    }
+                                ]
                             }
                         }
                     ],
@@ -126,8 +136,8 @@
                     "hint": "A CODE_OF_CONDUCT file sets the path for a constructive, respectful and positive atmosphere among all the contributors in your software project. Of course you can define your own, but in case you want to rely on external and widely-adopted code of conducts check out some of the most popular ones: <a href=\"https://contributor-covenant.org/\" target=\"_blank\">Contributor Covenant</a> or <a href=\"https://web.archive.org/web/20200330154000/http://citizencodeofconduct.org/\" target=\"_blank\">Citizen Code of Conduct</a>",
                     "evidence": [
                         {
-                            "valid": false,
-                            "message": "A CODE_OF_CONDUCT file is not present in the code repository",
+                            "valid": true,
+                            "message": "A CODE_OF_CONDUCT file is present in the code repository",
                             "plugin": {
                                 "name": "report2sqaaas-plugin-find_doc_files",
                                 "version": "2.1.0"
@@ -146,8 +156,8 @@
                                     "stdout_command": [
                                         "find_doc_files.py --file_type all"
                                     ],
-                                    "stdout_text": "{\"README\": [{\"file_name\": \"README.md\", \"size\": 658}], \"CODE_OF_CONDUCT\": [], \"CONTRIBUTING\": []}",
-                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/3/execution/node/43/log?consoleFull"
+                                    "stdout_text": "{\"README\": [{\"file_name\": \"README.md\", \"size\": 658}], \"CODE_OF_CONDUCT\": [{\"file_name\": \"CODE_OF_CONDUCT\", \"size\": 48}], \"CONTRIBUTING\": [{\"file_name\": \"CONTRIBUTING\", \"size\": 180}]}",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/7/execution/node/43/log?consoleFull"
                                 },
                                 "level": "REQUIRED",
                                 "build_repo": "https://github.com/eosc-synergy/alise.assess.sqaaas"
@@ -164,13 +174,22 @@
                                         "size": 658
                                     }
                                 ],
-                                "CODE_OF_CONDUCT": [],
-                                "CONTRIBUTING": []
+                                "CODE_OF_CONDUCT": [
+                                    {
+                                        "file_name": "CODE_OF_CONDUCT",
+                                        "size": 48
+                                    }
+                                ],
+                                "CONTRIBUTING": [
+                                    {
+                                        "file_name": "CONTRIBUTING",
+                                        "size": 180
+                                    }
+                                ]
                             }
                         }
                     ],
-                    "valid": false,
-                    "required_for_next_level_badge": true
+                    "valid": true
                 },
                 "QC.Doc06.2": {
                     "description": "Is there a clear path or guidelines on how to contribute to the code?",
@@ -178,8 +197,8 @@
                     "hint": "A CONTRIBUTING file shall be present in the root path of the code repository describing the expected workflow to follow when adding contributions. Please check <a href=\"https://mozillascience.github.io/working-open-workshop/contributing/\" target=\"_blank\">Mozilla's guidelines</a> and <a href=\"https://github.com/github/docs/blob/main/CONTRIBUTING.md\" target=\"_blank\">GitHub's CONTRIBUTING.md example</a> to get inspired on how to write a good CONTRIBUTING file",
                     "evidence": [
                         {
-                            "valid": false,
-                            "message": "A CONTRIBUTING file is not present in the code repository",
+                            "valid": true,
+                            "message": "A CONTRIBUTING file is present in the code repository",
                             "plugin": {
                                 "name": "report2sqaaas-plugin-find_doc_files",
                                 "version": "2.1.0"
@@ -198,8 +217,8 @@
                                     "stdout_command": [
                                         "find_doc_files.py --file_type all"
                                     ],
-                                    "stdout_text": "{\"README\": [{\"file_name\": \"README.md\", \"size\": 658}], \"CODE_OF_CONDUCT\": [], \"CONTRIBUTING\": []}",
-                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/3/execution/node/43/log?consoleFull"
+                                    "stdout_text": "{\"README\": [{\"file_name\": \"README.md\", \"size\": 658}], \"CODE_OF_CONDUCT\": [{\"file_name\": \"CODE_OF_CONDUCT\", \"size\": 48}], \"CONTRIBUTING\": [{\"file_name\": \"CONTRIBUTING\", \"size\": 180}]}",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/7/execution/node/43/log?consoleFull"
                                 },
                                 "level": "REQUIRED",
                                 "build_repo": "https://github.com/eosc-synergy/alise.assess.sqaaas"
@@ -216,13 +235,22 @@
                                         "size": 658
                                     }
                                 ],
-                                "CODE_OF_CONDUCT": [],
-                                "CONTRIBUTING": []
+                                "CODE_OF_CONDUCT": [
+                                    {
+                                        "file_name": "CODE_OF_CONDUCT",
+                                        "size": 48
+                                    }
+                                ],
+                                "CONTRIBUTING": [
+                                    {
+                                        "file_name": "CONTRIBUTING",
+                                        "size": 180
+                                    }
+                                ]
                             }
                         }
                     ],
-                    "valid": false,
-                    "required_for_next_level_badge": true
+                    "valid": true
                 },
                 "QC.Doc01.1": {
                     "description": "Are docs managed in the same repository as code?",
@@ -248,7 +276,7 @@
                                         "git rev-parse --is-inside-work-tree"
                                     ],
                                     "stdout_text": "true",
-                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/3/execution/node/52/log?consoleFull"
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/7/execution/node/52/log?consoleFull"
                                 },
                                 "level": "REQUIRED",
                                 "build_repo": "https://github.com/eosc-synergy/alise.assess.sqaaas"
@@ -265,9 +293,9 @@
                 }
             },
             "coverage": {
-                "percentage": 50,
+                "percentage": 100,
                 "total_subcriteria": 4,
-                "success_subcriteria": 2
+                "success_subcriteria": 4
             }
         },
         "QC.Lic": {
@@ -300,7 +328,7 @@
                                         "licensee detect . --confidence 60 --json"
                                     ],
                                     "stdout_text": "{\"licenses\":[{\"key\":\"mit\",\"spdx_id\":\"MIT\",\"meta\":{\"title\":\"MIT License\",\"source\":\"https://spdx.org/licenses/MIT.html\",\"description\":\"A short and simple permissive license with conditions only requiring preservation of copyright and license notices. Licensed works, modifications, and larger works may be distributed under different terms and without source code.\",\"how\":\"Create a text file (typically named LICENSE or LICENSE.txt) in the root of your source code and copy the text of the license into the file. Replace [year] with the current year and [fullname] with the name (or names) of the copyright holders.\",\"using\":{\"Babel\":\"https://github.com/babel/babel/blob/master/LICENSE\",\".NET\":\"https://github.com/dotnet/runtime/blob/main/LICENSE.TXT\",\"Rails\":\"https://github.com/rails/rails/blob/master/MIT-LICENSE\"},\"featured\":true,\"hidden\":false,\"nickname\":null,\"note\":null},\"url\":\"http://choosealicense.com/licenses/mit/\",\"rules\":{\"permissions\":[{\"tag\":\"commercial-use\",\"label\":\"Commercial use\",\"description\":\"The licensed material and derivatives may be used for commercial purposes.\"},{\"tag\":\"modifications\",\"label\":\"Modification\",\"description\":\"The licensed material may be modified.\"},{\"tag\":\"distribution\",\"label\":\"Distribution\",\"description\":\"The licensed material may be distributed.\"},{\"tag\":\"private-use\",\"label\":\"Private use\",\"description\":\"The licensed material may be used and modified in private.\"}],\"conditions\":[{\"tag\":\"include-copyright\",\"label\":\"License and copyright notice\",\"description\":\"A copy of the license and copyright notice must be included with the licensed material.\"}],\"limitations\":[{\"tag\":\"liability\",\"label\":\"Liability\",\"description\":\"This license includes a limitation of liability.\"},{\"tag\":\"warranty\",\"label\":\"Warranty\",\"description\":\"This license explicitly states that it does NOT provide any warranty.\"}]},\"fields\":[{\"name\":\"year\",\"description\":\"The current year\"},{\"name\":\"fullname\",\"description\":\"The full name or username of the repository owner\"}],\"other\":false,\"gpl\":false,\"lgpl\":false,\"cc\":false}],\"matched_files\":[{\"filename\":\"LICENSE\",\"content\":\"MIT License\\n\\nCopyright (c) 2023, Marcus Hardt\\n\\nPermission is hereby granted, free of charge, to any person obtaining a copy\\nof this software and associated documentation files (the \\\"Software\\\"), to deal\\nin the Software without restriction, including without limitation the rights\\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\\ncopies of the Software, and to permit persons to whom the Software is\\nfurnished to do so, subject to the following conditions:\\n\\nThe above copyright notice and this permission notice shall be included in all\\ncopies or substantial portions of the Software.\\n\\nTHE SOFTWARE IS PROVIDED \\\"AS IS\\\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\\nSOFTWARE.\\n\\n\",\"content_hash\":\"4c2c763d64bbc7ef2e58b0ec6d06d90cee9755c9\",\"content_normalized\":\"permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'software'), to deal in the software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software, and to permit persons to whom the software is furnished to do so, subject to the following conditions: the above copyright notice and this permission notice shall be included in all copies or substantial portions of the software. the software is provided 'as is', without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and noninfringement. in no event shall the authors or copyright holders be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the software or the use or other dealings in the software.\",\"matcher\":{\"name\":\"exact\",\"confidence\":100},\"matched_license\":\"MIT\",\"attribution\":\"Copyright (c) 2023, Marcus Hardt\"}]}",
-                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/3/execution/node/61/log?consoleFull"
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/7/execution/node/61/log?consoleFull"
                                 },
                                 "level": "REQUIRED",
                                 "build_repo": "https://github.com/eosc-synergy/alise.assess.sqaaas"
@@ -436,7 +464,7 @@
                                         "licensee detect . --confidence 60 --json"
                                     ],
                                     "stdout_text": "{\"licenses\":[{\"key\":\"mit\",\"spdx_id\":\"MIT\",\"meta\":{\"title\":\"MIT License\",\"source\":\"https://spdx.org/licenses/MIT.html\",\"description\":\"A short and simple permissive license with conditions only requiring preservation of copyright and license notices. Licensed works, modifications, and larger works may be distributed under different terms and without source code.\",\"how\":\"Create a text file (typically named LICENSE or LICENSE.txt) in the root of your source code and copy the text of the license into the file. Replace [year] with the current year and [fullname] with the name (or names) of the copyright holders.\",\"using\":{\"Babel\":\"https://github.com/babel/babel/blob/master/LICENSE\",\".NET\":\"https://github.com/dotnet/runtime/blob/main/LICENSE.TXT\",\"Rails\":\"https://github.com/rails/rails/blob/master/MIT-LICENSE\"},\"featured\":true,\"hidden\":false,\"nickname\":null,\"note\":null},\"url\":\"http://choosealicense.com/licenses/mit/\",\"rules\":{\"permissions\":[{\"tag\":\"commercial-use\",\"label\":\"Commercial use\",\"description\":\"The licensed material and derivatives may be used for commercial purposes.\"},{\"tag\":\"modifications\",\"label\":\"Modification\",\"description\":\"The licensed material may be modified.\"},{\"tag\":\"distribution\",\"label\":\"Distribution\",\"description\":\"The licensed material may be distributed.\"},{\"tag\":\"private-use\",\"label\":\"Private use\",\"description\":\"The licensed material may be used and modified in private.\"}],\"conditions\":[{\"tag\":\"include-copyright\",\"label\":\"License and copyright notice\",\"description\":\"A copy of the license and copyright notice must be included with the licensed material.\"}],\"limitations\":[{\"tag\":\"liability\",\"label\":\"Liability\",\"description\":\"This license includes a limitation of liability.\"},{\"tag\":\"warranty\",\"label\":\"Warranty\",\"description\":\"This license explicitly states that it does NOT provide any warranty.\"}]},\"fields\":[{\"name\":\"year\",\"description\":\"The current year\"},{\"name\":\"fullname\",\"description\":\"The full name or username of the repository owner\"}],\"other\":false,\"gpl\":false,\"lgpl\":false,\"cc\":false}],\"matched_files\":[{\"filename\":\"LICENSE\",\"content\":\"MIT License\\n\\nCopyright (c) 2023, Marcus Hardt\\n\\nPermission is hereby granted, free of charge, to any person obtaining a copy\\nof this software and associated documentation files (the \\\"Software\\\"), to deal\\nin the Software without restriction, including without limitation the rights\\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\\ncopies of the Software, and to permit persons to whom the Software is\\nfurnished to do so, subject to the following conditions:\\n\\nThe above copyright notice and this permission notice shall be included in all\\ncopies or substantial portions of the Software.\\n\\nTHE SOFTWARE IS PROVIDED \\\"AS IS\\\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\\nSOFTWARE.\\n\\n\",\"content_hash\":\"4c2c763d64bbc7ef2e58b0ec6d06d90cee9755c9\",\"content_normalized\":\"permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'software'), to deal in the software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software, and to permit persons to whom the software is furnished to do so, subject to the following conditions: the above copyright notice and this permission notice shall be included in all copies or substantial portions of the software. the software is provided 'as is', without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and noninfringement. in no event shall the authors or copyright holders be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the software or the use or other dealings in the software.\",\"matcher\":{\"name\":\"exact\",\"confidence\":100},\"matched_license\":\"MIT\",\"attribution\":\"Copyright (c) 2023, Marcus Hardt\"}]}",
-                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/3/execution/node/61/log?consoleFull"
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/7/execution/node/61/log?consoleFull"
                                 },
                                 "level": "REQUIRED",
                                 "build_repo": "https://github.com/eosc-synergy/alise.assess.sqaaas"
@@ -572,7 +600,7 @@
                                         "licensee detect . --confidence 60 --json"
                                     ],
                                     "stdout_text": "{\"licenses\":[{\"key\":\"mit\",\"spdx_id\":\"MIT\",\"meta\":{\"title\":\"MIT License\",\"source\":\"https://spdx.org/licenses/MIT.html\",\"description\":\"A short and simple permissive license with conditions only requiring preservation of copyright and license notices. Licensed works, modifications, and larger works may be distributed under different terms and without source code.\",\"how\":\"Create a text file (typically named LICENSE or LICENSE.txt) in the root of your source code and copy the text of the license into the file. Replace [year] with the current year and [fullname] with the name (or names) of the copyright holders.\",\"using\":{\"Babel\":\"https://github.com/babel/babel/blob/master/LICENSE\",\".NET\":\"https://github.com/dotnet/runtime/blob/main/LICENSE.TXT\",\"Rails\":\"https://github.com/rails/rails/blob/master/MIT-LICENSE\"},\"featured\":true,\"hidden\":false,\"nickname\":null,\"note\":null},\"url\":\"http://choosealicense.com/licenses/mit/\",\"rules\":{\"permissions\":[{\"tag\":\"commercial-use\",\"label\":\"Commercial use\",\"description\":\"The licensed material and derivatives may be used for commercial purposes.\"},{\"tag\":\"modifications\",\"label\":\"Modification\",\"description\":\"The licensed material may be modified.\"},{\"tag\":\"distribution\",\"label\":\"Distribution\",\"description\":\"The licensed material may be distributed.\"},{\"tag\":\"private-use\",\"label\":\"Private use\",\"description\":\"The licensed material may be used and modified in private.\"}],\"conditions\":[{\"tag\":\"include-copyright\",\"label\":\"License and copyright notice\",\"description\":\"A copy of the license and copyright notice must be included with the licensed material.\"}],\"limitations\":[{\"tag\":\"liability\",\"label\":\"Liability\",\"description\":\"This license includes a limitation of liability.\"},{\"tag\":\"warranty\",\"label\":\"Warranty\",\"description\":\"This license explicitly states that it does NOT provide any warranty.\"}]},\"fields\":[{\"name\":\"year\",\"description\":\"The current year\"},{\"name\":\"fullname\",\"description\":\"The full name or username of the repository owner\"}],\"other\":false,\"gpl\":false,\"lgpl\":false,\"cc\":false}],\"matched_files\":[{\"filename\":\"LICENSE\",\"content\":\"MIT License\\n\\nCopyright (c) 2023, Marcus Hardt\\n\\nPermission is hereby granted, free of charge, to any person obtaining a copy\\nof this software and associated documentation files (the \\\"Software\\\"), to deal\\nin the Software without restriction, including without limitation the rights\\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\\ncopies of the Software, and to permit persons to whom the Software is\\nfurnished to do so, subject to the following conditions:\\n\\nThe above copyright notice and this permission notice shall be included in all\\ncopies or substantial portions of the Software.\\n\\nTHE SOFTWARE IS PROVIDED \\\"AS IS\\\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\\nSOFTWARE.\\n\\n\",\"content_hash\":\"4c2c763d64bbc7ef2e58b0ec6d06d90cee9755c9\",\"content_normalized\":\"permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'software'), to deal in the software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software, and to permit persons to whom the software is furnished to do so, subject to the following conditions: the above copyright notice and this permission notice shall be included in all copies or substantial portions of the software. the software is provided 'as is', without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and noninfringement. in no event shall the authors or copyright holders be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the software or the use or other dealings in the software.\",\"matcher\":{\"name\":\"exact\",\"confidence\":100},\"matched_license\":\"MIT\",\"attribution\":\"Copyright (c) 2023, Marcus Hardt\"}]}",
-                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/3/execution/node/61/log?consoleFull"
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/7/execution/node/61/log?consoleFull"
                                 },
                                 "level": "REQUIRED",
                                 "build_repo": "https://github.com/eosc-synergy/alise.assess.sqaaas"
@@ -708,7 +736,7 @@
                                         "licensee detect . --confidence 60 --json"
                                     ],
                                     "stdout_text": "{\"licenses\":[{\"key\":\"mit\",\"spdx_id\":\"MIT\",\"meta\":{\"title\":\"MIT License\",\"source\":\"https://spdx.org/licenses/MIT.html\",\"description\":\"A short and simple permissive license with conditions only requiring preservation of copyright and license notices. Licensed works, modifications, and larger works may be distributed under different terms and without source code.\",\"how\":\"Create a text file (typically named LICENSE or LICENSE.txt) in the root of your source code and copy the text of the license into the file. Replace [year] with the current year and [fullname] with the name (or names) of the copyright holders.\",\"using\":{\"Babel\":\"https://github.com/babel/babel/blob/master/LICENSE\",\".NET\":\"https://github.com/dotnet/runtime/blob/main/LICENSE.TXT\",\"Rails\":\"https://github.com/rails/rails/blob/master/MIT-LICENSE\"},\"featured\":true,\"hidden\":false,\"nickname\":null,\"note\":null},\"url\":\"http://choosealicense.com/licenses/mit/\",\"rules\":{\"permissions\":[{\"tag\":\"commercial-use\",\"label\":\"Commercial use\",\"description\":\"The licensed material and derivatives may be used for commercial purposes.\"},{\"tag\":\"modifications\",\"label\":\"Modification\",\"description\":\"The licensed material may be modified.\"},{\"tag\":\"distribution\",\"label\":\"Distribution\",\"description\":\"The licensed material may be distributed.\"},{\"tag\":\"private-use\",\"label\":\"Private use\",\"description\":\"The licensed material may be used and modified in private.\"}],\"conditions\":[{\"tag\":\"include-copyright\",\"label\":\"License and copyright notice\",\"description\":\"A copy of the license and copyright notice must be included with the licensed material.\"}],\"limitations\":[{\"tag\":\"liability\",\"label\":\"Liability\",\"description\":\"This license includes a limitation of liability.\"},{\"tag\":\"warranty\",\"label\":\"Warranty\",\"description\":\"This license explicitly states that it does NOT provide any warranty.\"}]},\"fields\":[{\"name\":\"year\",\"description\":\"The current year\"},{\"name\":\"fullname\",\"description\":\"The full name or username of the repository owner\"}],\"other\":false,\"gpl\":false,\"lgpl\":false,\"cc\":false}],\"matched_files\":[{\"filename\":\"LICENSE\",\"content\":\"MIT License\\n\\nCopyright (c) 2023, Marcus Hardt\\n\\nPermission is hereby granted, free of charge, to any person obtaining a copy\\nof this software and associated documentation files (the \\\"Software\\\"), to deal\\nin the Software without restriction, including without limitation the rights\\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\\ncopies of the Software, and to permit persons to whom the Software is\\nfurnished to do so, subject to the following conditions:\\n\\nThe above copyright notice and this permission notice shall be included in all\\ncopies or substantial portions of the Software.\\n\\nTHE SOFTWARE IS PROVIDED \\\"AS IS\\\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\\nSOFTWARE.\\n\\n\",\"content_hash\":\"4c2c763d64bbc7ef2e58b0ec6d06d90cee9755c9\",\"content_normalized\":\"permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'software'), to deal in the software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software, and to permit persons to whom the software is furnished to do so, subject to the following conditions: the above copyright notice and this permission notice shall be included in all copies or substantial portions of the software. the software is provided 'as is', without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and noninfringement. in no event shall the authors or copyright holders be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the software or the use or other dealings in the software.\",\"matcher\":{\"name\":\"exact\",\"confidence\":100},\"matched_license\":\"MIT\",\"attribution\":\"Copyright (c) 2023, Marcus Hardt\"}]}",
-                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/3/execution/node/61/log?consoleFull"
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/7/execution/node/61/log?consoleFull"
                                 },
                                 "level": "REQUIRED",
                                 "build_repo": "https://github.com/eosc-synergy/alise.assess.sqaaas"
@@ -853,8 +881,8 @@
                                     "stdout_command": [
                                         "get_git_tags.py"
                                     ],
-                                    "stdout_text": "['v1.0', 'v0.1.2', 'v0.1.1', 'v0.1.0', 'v0.0.1']",
-                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/3/execution/node/70/log?consoleFull"
+                                    "stdout_text": "['1.0.0-rc2', '1.0.0-rc1', 'v1.0.0', 'v0.1.2', 'v0.1.1', 'v0.1.0', 'v0.0.1']",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/7/execution/node/70/log?consoleFull"
                                 },
                                 "level": "REQUIRED",
                                 "build_repo": "https://github.com/eosc-synergy/alise.assess.sqaaas"
@@ -865,7 +893,9 @@
                                 "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
                             },
                             "data_unstructured": [
-                                "v1.0",
+                                "1.0.0-rc2",
+                                "1.0.0-rc1",
+                                "v1.0.0",
                                 "v0.1.2",
                                 "v0.1.1",
                                 "v0.1.0",
@@ -881,8 +911,8 @@
                     "hint": "Latest tag must be compliant with <a href=\"https://semver.org\" target=\"_blank\">SemVer specification</a>",
                     "evidence": [
                         {
-                            "valid": false,
-                            "message": "Latest release tag v1.0 found, but is not SemVer compliant",
+                            "valid": true,
+                            "message": "Latest release tag 1.0.0-rc2 is SemVer compliant",
                             "plugin": {
                                 "name": "report2sqaaas-plugin-is_semver",
                                 "version": "2.1.0"
@@ -901,8 +931,8 @@
                                     "stdout_command": [
                                         "get_git_tags.py"
                                     ],
-                                    "stdout_text": "['v1.0', 'v0.1.2', 'v0.1.1', 'v0.1.0', 'v0.0.1']",
-                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/3/execution/node/70/log?consoleFull"
+                                    "stdout_text": "['1.0.0-rc2', '1.0.0-rc1', 'v1.0.0', 'v0.1.2', 'v0.1.1', 'v0.1.0', 'v0.0.1']",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/7/execution/node/70/log?consoleFull"
                                 },
                                 "level": "REQUIRED",
                                 "build_repo": "https://github.com/eosc-synergy/alise.assess.sqaaas"
@@ -913,7 +943,9 @@
                                 "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
                             },
                             "data_unstructured": [
-                                "v1.0",
+                                "1.0.0-rc2",
+                                "1.0.0-rc1",
+                                "v1.0.0",
                                 "v0.1.2",
                                 "v0.1.1",
                                 "v0.1.0",
@@ -921,8 +953,7 @@
                             ]
                         }
                     ],
-                    "valid": false,
-                    "required_for_next_level_badge": false
+                    "valid": true
                 },
                 "QC.Ver02": {
                     "description": "Are all release tags with Semantic Versioning (SemVer) specification?",
@@ -950,8 +981,8 @@
                                     "stdout_command": [
                                         "get_git_tags.py"
                                     ],
-                                    "stdout_text": "['v1.0', 'v0.1.2', 'v0.1.1', 'v0.1.0', 'v0.0.1']",
-                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/3/execution/node/70/log?consoleFull"
+                                    "stdout_text": "['1.0.0-rc2', '1.0.0-rc1', 'v1.0.0', 'v0.1.2', 'v0.1.1', 'v0.1.0', 'v0.0.1']",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/7/execution/node/70/log?consoleFull"
                                 },
                                 "level": "REQUIRED",
                                 "build_repo": "https://github.com/eosc-synergy/alise.assess.sqaaas"
@@ -962,7 +993,9 @@
                                 "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
                             },
                             "data_unstructured": [
-                                "v1.0",
+                                "1.0.0-rc2",
+                                "1.0.0-rc1",
+                                "v1.0.0",
                                 "v0.1.2",
                                 "v0.1.1",
                                 "v0.1.0",
@@ -975,9 +1008,9 @@
                 }
             },
             "coverage": {
-                "percentage": 33,
+                "percentage": 66,
                 "total_subcriteria": 3,
-                "success_subcriteria": 1
+                "success_subcriteria": 2
             }
         },
         "QC.Met": {
@@ -993,7 +1026,7 @@
                             "message": "No matching files found for language <CodeMeta> in repository searching by extensions or filenames\nNo matching files found for language <Citation File Format> in repository searching by extensions or filenames"
                         }
                     ],
-                    "required_for_next_level_badge": false
+                    "required_for_next_level_badge": true
                 }
             },
             "coverage": {
@@ -1078,12 +1111,11 @@
                         "QC.Lic",
                         "QC.Doc"
                     ],
-                    "missing": [
-                        "QC.Doc"
-                    ],
+                    "missing": [],
                     "fulfilled": [
                         "QC.Acc",
-                        "QC.Lic"
+                        "QC.Lic",
+                        "QC.Doc"
                     ]
                 },
                 "silver": {
@@ -1095,13 +1127,13 @@
                         "QC.Doc"
                     ],
                     "missing": [
-                        "QC.Met",
-                        "QC.Doc"
+                        "QC.Met"
                     ],
                     "fulfilled": [
                         "QC.Acc",
                         "QC.Ver",
-                        "QC.Lic"
+                        "QC.Lic",
+                        "QC.Doc"
                     ]
                 },
                 "gold": {
@@ -1119,17 +1151,68 @@
                         "QC.Sec",
                         "QC.Uni",
                         "QC.Sty",
-                        "QC.Met",
-                        "QC.Doc"
+                        "QC.Met"
                     ],
                     "fulfilled": [
                         "QC.Acc",
                         "QC.Ver",
-                        "QC.Lic"
+                        "QC.Lic",
+                        "QC.Doc"
                     ]
                 }
             },
-            "data": {}
+            "data": {
+                "entityType": "Assertion",
+                "entityId": "MQdIdz78TQG-LnWkC7TPCA",
+                "openBadgeId": "https://api.eu.badgr.io/public/assertions/MQdIdz78TQG-LnWkC7TPCA",
+                "createdAt": "2025-01-05T21:27:45.077851587Z",
+                "createdBy": "aS1lWKgIR4u8bGjPZUzAyg",
+                "badgeclass": "UOmgyH_TSpSPXiro4aNBoQ",
+                "badgeclassOpenBadgeId": "https://api.eu.badgr.io/public/badges/UOmgyH_TSpSPXiro4aNBoQ",
+                "issuer": "aS1lWKgIR4u8bGjPZUzAyg",
+                "issuerOpenBadgeId": "https://api.eu.badgr.io/public/issuers/aS1lWKgIR4u8bGjPZUzAyg",
+                "image": "https://api.eu.badgr.io/public/assertions/MQdIdz78TQG-LnWkC7TPCA/image",
+                "recipient": {
+                    "identity": "sha256$e7561ea694d681f4f9d7187b6c3d596899372148f2e304dd991dfb41e80a1215",
+                    "hashed": true,
+                    "type": "url",
+                    "salt": "D5KQWXDJs7gbo4SX",
+                    "plaintextIdentity": "https://codebase.helmholtz.cloud/m-team/tools/alise"
+                },
+                "issuedOn": "2025-01-05T21:27:45.077853801Z",
+                "narrative": "SQAaaS assessment results for repository https://codebase.helmholtz.cloud/m-team/tools/alise (commit: 9958191271f2b64e7f9464192e05dbd23800f433, branch/tag: master)",
+                "evidence": [
+                    {
+                        "url": "https://github.com/EOSC-synergy/alise.assess.sqaaas/commit/41632cff6108bb3f6977fd32ecdad33665b5038e",
+                        "narrative": "SQAaaS build repository"
+                    },
+                    {
+                        "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/7/",
+                        "narrative": "Build page from Jenkins CI"
+                    }
+                ],
+                "revoked": false,
+                "revocationReason": null,
+                "acceptance": "Unaccepted",
+                "expires": null,
+                "extensions": {},
+                "assertionRef": {
+                    "assertionUrl": "https://api.eu.badgr.io/public/assertions/MQdIdz78TQG-LnWkC7TPCA"
+                },
+                "badgeRef": {
+                    "badgeUrl": "https://api.eu.badgr.io/public/badges/UOmgyH_TSpSPXiro4aNBoQ"
+                },
+                "issuerRef": {
+                    "issuerUrl": "https://api.eu.badgr.io/public/issuers/aS1lWKgIR4u8bGjPZUzAyg"
+                },
+                "pending": null,
+                "source": "local",
+                "sourceUrl": null,
+                "originalJson": null,
+                "imagePath": "uploads/badges/assertion-MQdIdz78TQG-LnWkC7TPCA.png"
+            },
+            "share": "<!--\nSPDX-FileCopyrightText: Copyright contributors to the Software Quality Assurance as a Service (SQAaaS) project <sqaaas@ibergrid.eu>\nSPDX-FileContributor: Pablo Orviz <orviz@ifca.unican.es>\n\nSPDX-License-Identifier: GPL-3.0-only\n-->\n\n<blockquote class=\"badgr-badge\" style=\"font-family: Helvetica, Roboto, &quot;Segoe UI&quot;, Calibri, sans-serif;\"><a href=\"https://api.eu.badgr.io/public/assertions/MQdIdz78TQG-LnWkC7TPCA?identity__url=https%3A//github.com/EOSC-synergy/alise.assess.sqaaas/commit/41632cff6108bb3f6977fd32ecdad33665b5038e\"><img width=\"120px\" height=\"120px\" src=\"https://api.eu.badgr.io/public/assertions/MQdIdz78TQG-LnWkC7TPCA/image\"></a><script async=\"async\" src=\"https://eu.badgr.com/assets/widgets.bundle.js\"></script></blockquote>",
+            "verification_url": "https://badgecheck.io/?url=https%3A%2F%2Fapi.eu.badgr.io%2Fpublic%2Fassertions%2FMQdIdz78TQG-LnWkC7TPCA?identity__url=https%3A%2F%2Fgithub.com%2FEOSC-synergy%2Falise.assess.sqaaas%2Fcommit%2F41632cff6108bb3f6977fd32ecdad33665b5038e&amp;identity__url=https%3A%2F%2Fgithub.com%2FEOSC-synergy%2Falise.assess.sqaaas%2Fcommit%2F41632cff6108bb3f6977fd32ecdad33665b5038e"
         }
     }
 }
