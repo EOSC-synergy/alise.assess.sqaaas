@@ -10,7 +10,7 @@
             "tag": "master",
             "commit_id": "cfaa2f4df4aeda0d614a5411d6077251204b3878",
             "is_main_repo": true,
-            "badge_status": "bronze"
+            "badge_status": "silver"
         }
     ],
     "report": {
@@ -44,7 +44,7 @@
                                         "git rev-parse --is-inside-work-tree"
                                     ],
                                     "stdout_text": "true",
-                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/18/execution/node/34/log?consoleFull"
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/22/execution/node/34/log?consoleFull"
                                 },
                                 "level": "REQUIRED",
                                 "build_repo": "https://github.com/eosc-synergy/alise.assess.sqaaas"
@@ -96,7 +96,7 @@
                                         "find_doc_files.py --file_type all"
                                     ],
                                     "stdout_text": "{\"README\": [{\"file_name\": \"README.md\", \"size\": 846}], \"CODE_OF_CONDUCT\": [{\"file_name\": \"CODE_OF_CONDUCT\", \"size\": 48}], \"CONTRIBUTING\": [{\"file_name\": \"CONTRIBUTING\", \"size\": 180}]}",
-                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/18/execution/node/43/log?consoleFull"
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/22/execution/node/43/log?consoleFull"
                                 },
                                 "level": "REQUIRED",
                                 "build_repo": "https://github.com/eosc-synergy/alise.assess.sqaaas"
@@ -157,7 +157,7 @@
                                         "find_doc_files.py --file_type all"
                                     ],
                                     "stdout_text": "{\"README\": [{\"file_name\": \"README.md\", \"size\": 846}], \"CODE_OF_CONDUCT\": [{\"file_name\": \"CODE_OF_CONDUCT\", \"size\": 48}], \"CONTRIBUTING\": [{\"file_name\": \"CONTRIBUTING\", \"size\": 180}]}",
-                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/18/execution/node/43/log?consoleFull"
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/22/execution/node/43/log?consoleFull"
                                 },
                                 "level": "REQUIRED",
                                 "build_repo": "https://github.com/eosc-synergy/alise.assess.sqaaas"
@@ -218,7 +218,7 @@
                                         "find_doc_files.py --file_type all"
                                     ],
                                     "stdout_text": "{\"README\": [{\"file_name\": \"README.md\", \"size\": 846}], \"CODE_OF_CONDUCT\": [{\"file_name\": \"CODE_OF_CONDUCT\", \"size\": 48}], \"CONTRIBUTING\": [{\"file_name\": \"CONTRIBUTING\", \"size\": 180}]}",
-                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/18/execution/node/43/log?consoleFull"
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/22/execution/node/43/log?consoleFull"
                                 },
                                 "level": "REQUIRED",
                                 "build_repo": "https://github.com/eosc-synergy/alise.assess.sqaaas"
@@ -276,7 +276,7 @@
                                         "git rev-parse --is-inside-work-tree"
                                     ],
                                     "stdout_text": "true",
-                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/18/execution/node/52/log?consoleFull"
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/22/execution/node/52/log?consoleFull"
                                 },
                                 "level": "REQUIRED",
                                 "build_repo": "https://github.com/eosc-synergy/alise.assess.sqaaas"
@@ -290,11 +290,253 @@
                         }
                     ],
                     "valid": true
+                },
+                "QC.Doc02.X": {
+                    "description": "Are docs following a style for the Markdown markup language?",
+                    "requirement_level": "MAY",
+                    "hint": "When using a docs-as-code approach, the style of the markup language is being checked. SQAaaS relies on <a href=\"https://github.com/markdownlint/markdownlint/\" target=\"_blank\">markdownlint</a> for Markdown files and <a href=\"https://github.com/twolfson/restructuredtext-lint/\" target=\"_blank\">restructuredtext-lint</a> for reStructuredText",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "Docs are not fully compliant with markdownlint standard",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-markdownlint",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "markdownlint",
+                                "lang": "Markdown",
+                                "version": "0.11.0",
+                                "docker": {
+                                    "dockerfile": "QC.Doc/markdownlint/Dockerfile",
+                                    "reviewed": "1970-01-01"
+                                },
+                                "ci": {
+                                    "name": "QC.Doc codebase.helmholtz.cloud/m-team/tools/alise markdownlint",
+                                    "status": "FAILED",
+                                    "stdout_command": [
+                                        "mdl --json ."
+                                    ],
+                                    "stdout_text": "[{\"filename\":\"./README.md\",\"line\":7,\"rule\":\"MD009\",\"aliases\":[\"no-trailing-spaces\"],\"description\":\"Trailing spaces\"},{\"filename\":\"./README.md\",\"line\":4,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\"},{\"filename\":\"./README.md\",\"line\":10,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\"},{\"filename\":\"./README.md\",\"line\":6,\"rule\":\"MD022\",\"aliases\":[\"blanks-around-headers\"],\"description\":\"Headers should be surrounded by blank lines\"},{\"filename\":\"./README.md\",\"line\":9,\"rule\":\"MD022\",\"aliases\":[\"blanks-around-headers\"],\"description\":\"Headers should be surrounded by blank lines\"},{\"filename\":\"./README.md\",\"line\":11,\"rule\":\"MD031\",\"aliases\":[\"blanks-around-fences\"],\"description\":\"Fenced code blocks should be surrounded by blank lines\"},{\"filename\":\"./README.md\",\"line\":16,\"rule\":\"MD031\",\"aliases\":[\"blanks-around-fences\"],\"description\":\"Fenced code blocks should be surrounded by blank lines\"},{\"filename\":\"./alise/README.md\",\"line\":6,\"rule\":\"MD009\",\"aliases\":[\"no-trailing-spaces\"],\"description\":\"Trailing spaces\"},{\"filename\":\"./alise/README.md\",\"line\":20,\"rule\":\"MD009\",\"aliases\":[\"no-trailing-spaces\"],\"description\":\"Trailing spaces\"},{\"filename\":\"./alise/README.md\",\"line\":33,\"rule\":\"MD009\",\"aliases\":[\"no-trailing-spaces\"],\"description\":\"Trailing spaces\"},{\"filename\":\"./alise/README.md\",\"line\":25,\"rule\":\"MD012\",\"aliases\":[\"no-multiple-blanks\"],\"description\":\"Multiple consecutive blank lines\"},{\"filename\":\"./alise/README.md\",\"line\":18,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\"},{\"filename\":\"./alise/README.md\",\"line\":22,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\"},{\"filename\":\"./alise/README.md\",\"line\":31,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\"},{\"filename\":\"./alise/README.md\",\"line\":35,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\"},{\"filename\":\"./alise/README.md\",\"line\":40,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\"},{\"filename\":\"./alise/README.md\",\"line\":5,\"rule\":\"MD022\",\"aliases\":[\"blanks-around-headers\"],\"description\":\"Headers should be surrounded by blank lines\"},{\"filename\":\"./alise/README.md\",\"line\":8,\"rule\":\"MD026\",\"aliases\":[\"no-trailing-punctuation\"],\"description\":\"Trailing punctuation in header\"},{\"filename\":\"./alise/README.md\",\"line\":12,\"rule\":\"MD026\",\"aliases\":[\"no-trailing-punctuation\"],\"description\":\"Trailing punctuation in header\"},{\"filename\":\"./alise/README.md\",\"line\":41,\"rule\":\"MD031\",\"aliases\":[\"blanks-around-fences\"],\"description\":\"Fenced code blocks should be surrounded by blank lines\"},{\"filename\":\"./alise/README.md\",\"line\":46,\"rule\":\"MD031\",\"aliases\":[\"blanks-around-fences\"],\"description\":\"Fenced code blocks should be surrounded by blank lines\"}]",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/22/execution/node/61/log?consoleFull"
+                                },
+                                "level": "RECOMMENDED",
+                                "build_repo": "https://github.com/eosc-synergy/alise.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {
+                                "./README.md": {
+                                    "MD009": {
+                                        "description": "Trailing spaces",
+                                        "line": [
+                                            7
+                                        ]
+                                    },
+                                    "MD013": {
+                                        "description": "Line length",
+                                        "line": [
+                                            4,
+                                            10
+                                        ]
+                                    },
+                                    "MD022": {
+                                        "description": "Headers should be surrounded by blank lines",
+                                        "line": [
+                                            6,
+                                            9
+                                        ]
+                                    },
+                                    "MD031": {
+                                        "description": "Fenced code blocks should be surrounded by blank lines",
+                                        "line": [
+                                            11,
+                                            16
+                                        ]
+                                    }
+                                },
+                                "./alise/README.md": {
+                                    "MD009": {
+                                        "description": "Trailing spaces",
+                                        "line": [
+                                            6,
+                                            20,
+                                            33
+                                        ]
+                                    },
+                                    "MD012": {
+                                        "description": "Multiple consecutive blank lines",
+                                        "line": [
+                                            25
+                                        ]
+                                    },
+                                    "MD013": {
+                                        "description": "Line length",
+                                        "line": [
+                                            18,
+                                            22,
+                                            31,
+                                            35,
+                                            40
+                                        ]
+                                    },
+                                    "MD022": {
+                                        "description": "Headers should be surrounded by blank lines",
+                                        "line": [
+                                            5
+                                        ]
+                                    },
+                                    "MD026": {
+                                        "description": "Trailing punctuation in header",
+                                        "line": [
+                                            8,
+                                            12
+                                        ]
+                                    },
+                                    "MD031": {
+                                        "description": "Fenced code blocks should be surrounded by blank lines",
+                                        "line": [
+                                            41,
+                                            46
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "valid": false,
+                            "message": "Docs are not fully compliant with restructuredtext-lint standard",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-markdownlint",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "restructuredtext-lint",
+                                "lang": "reStructuredText",
+                                "version": "1.3.2",
+                                "docker": {
+                                    "dockerfile": "QC.Doc/restructuredtext-lint/Dockerfile",
+                                    "reviewed": "2022-01-18"
+                                },
+                                "ci": {
+                                    "name": "QC.Doc codebase.helmholtz.cloud/m-team/tools/alise restructuredtext-lint",
+                                    "status": "FAILED",
+                                    "stdout_command": [
+                                        "rst-lint --level warning --format json ."
+                                    ],
+                                    "stdout_text": "[{\"line\": 10, \"source\": \"./doc/source/index.rst\", \"level\": 3, \"type\": \"ERROR\", \"message\": \"Unknown directive type \\\"toctree\\\".\", \"full_message\": \"Unknown directive type \\\"toctree\\\".\\n\\n.. toctree::\\n   :maxdepth: 1\\n\\n   alise/installation\\n   alise/development\\n\\n\"}, {\"line\": 30, \"source\": \"./doc/source/index.rst\", \"level\": 3, \"type\": \"ERROR\", \"message\": \"Unknown directive type \\\"toctree\\\".\", \"full_message\": \"Unknown directive type \\\"toctree\\\".\\n\\n.. toctree::\\n   :maxdepth: 2\\n\\n   alise/api/index\\n\"}, {\"line\": 41, \"source\": \"./doc/source/index.rst\", \"level\": 3, \"type\": \"ERROR\", \"message\": \"Unknown interpreted text role \\\"ref\\\".\", \"full_message\": \"Unknown interpreted text role \\\"ref\\\".\"}, {\"line\": 42, \"source\": \"./doc/source/index.rst\", \"level\": 3, \"type\": \"ERROR\", \"message\": \"Unknown interpreted text role \\\"ref\\\".\", \"full_message\": \"Unknown interpreted text role \\\"ref\\\".\"}, {\"line\": 8, \"source\": \"./doc/source/alise/installation.rst\", \"level\": 2, \"type\": \"WARNING\", \"message\": \"Cannot analyze code. Pygments package not found.\", \"full_message\": \"Cannot analyze code. Pygments package not found.\"}, {\"line\": 23, \"source\": \"./doc/source/alise/installation.rst\", \"level\": 2, \"type\": \"WARNING\", \"message\": \"Cannot analyze code. Pygments package not found.\", \"full_message\": \"Cannot analyze code. Pygments package not found.\"}, {\"line\": 11, \"source\": \"./doc/source/alise/development.rst\", \"level\": 2, \"type\": \"WARNING\", \"message\": \"Cannot analyze code. Pygments package not found.\", \"full_message\": \"Cannot analyze code. Pygments package not found.\"}, {\"line\": 21, \"source\": \"./doc/source/alise/development.rst\", \"level\": 2, \"type\": \"WARNING\", \"message\": \"Cannot analyze code. Pygments package not found.\", \"full_message\": \"Cannot analyze code. Pygments package not found.\"}, {\"line\": 39, \"source\": \"./doc/source/alise/development.rst\", \"level\": 2, \"type\": \"WARNING\", \"message\": \"Cannot analyze code. Pygments package not found.\", \"full_message\": \"Cannot analyze code. Pygments package not found.\"}, {\"line\": 11, \"source\": \"./doc/source/alise/api/index.rst\", \"level\": 3, \"type\": \"ERROR\", \"message\": \"Unknown directive type \\\"automodule\\\".\", \"full_message\": \"Unknown directive type \\\"automodule\\\".\\n\\n.. automodule:: alise\\n   :members:\\n\\n\"}, {\"line\": 17, \"source\": \"./doc/source/alise/api/index.rst\", \"level\": 3, \"type\": \"ERROR\", \"message\": \"Unknown directive type \\\"automodule\\\".\", \"full_message\": \"Unknown directive type \\\"automodule\\\".\\n\\n.. automodule:: alise.alise\\n   :members:\"}]",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/22/execution/node/70/log?consoleFull"
+                                },
+                                "level": "RECOMMENDED",
+                                "build_repo": "https://github.com/eosc-synergy/alise.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": [
+                                {
+                                    "line": 10,
+                                    "source": "./doc/source/index.rst",
+                                    "level": 3,
+                                    "type": "ERROR",
+                                    "message": "Unknown directive type \"toctree\".",
+                                    "full_message": "Unknown directive type \"toctree\".\n\n.. toctree::\n   :maxdepth: 1\n\n   alise/installation\n   alise/development\n\n"
+                                },
+                                {
+                                    "line": 30,
+                                    "source": "./doc/source/index.rst",
+                                    "level": 3,
+                                    "type": "ERROR",
+                                    "message": "Unknown directive type \"toctree\".",
+                                    "full_message": "Unknown directive type \"toctree\".\n\n.. toctree::\n   :maxdepth: 2\n\n   alise/api/index\n"
+                                },
+                                {
+                                    "line": 41,
+                                    "source": "./doc/source/index.rst",
+                                    "level": 3,
+                                    "type": "ERROR",
+                                    "message": "Unknown interpreted text role \"ref\".",
+                                    "full_message": "Unknown interpreted text role \"ref\"."
+                                },
+                                {
+                                    "line": 42,
+                                    "source": "./doc/source/index.rst",
+                                    "level": 3,
+                                    "type": "ERROR",
+                                    "message": "Unknown interpreted text role \"ref\".",
+                                    "full_message": "Unknown interpreted text role \"ref\"."
+                                },
+                                {
+                                    "line": 8,
+                                    "source": "./doc/source/alise/installation.rst",
+                                    "level": 2,
+                                    "type": "WARNING",
+                                    "message": "Cannot analyze code. Pygments package not found.",
+                                    "full_message": "Cannot analyze code. Pygments package not found."
+                                },
+                                {
+                                    "line": 23,
+                                    "source": "./doc/source/alise/installation.rst",
+                                    "level": 2,
+                                    "type": "WARNING",
+                                    "message": "Cannot analyze code. Pygments package not found.",
+                                    "full_message": "Cannot analyze code. Pygments package not found."
+                                },
+                                {
+                                    "line": 11,
+                                    "source": "./doc/source/alise/development.rst",
+                                    "level": 2,
+                                    "type": "WARNING",
+                                    "message": "Cannot analyze code. Pygments package not found.",
+                                    "full_message": "Cannot analyze code. Pygments package not found."
+                                },
+                                {
+                                    "line": 21,
+                                    "source": "./doc/source/alise/development.rst",
+                                    "level": 2,
+                                    "type": "WARNING",
+                                    "message": "Cannot analyze code. Pygments package not found.",
+                                    "full_message": "Cannot analyze code. Pygments package not found."
+                                },
+                                {
+                                    "line": 39,
+                                    "source": "./doc/source/alise/development.rst",
+                                    "level": 2,
+                                    "type": "WARNING",
+                                    "message": "Cannot analyze code. Pygments package not found.",
+                                    "full_message": "Cannot analyze code. Pygments package not found."
+                                },
+                                {
+                                    "line": 11,
+                                    "source": "./doc/source/alise/api/index.rst",
+                                    "level": 3,
+                                    "type": "ERROR",
+                                    "message": "Unknown directive type \"automodule\".",
+                                    "full_message": "Unknown directive type \"automodule\".\n\n.. automodule:: alise\n   :members:\n\n"
+                                },
+                                {
+                                    "line": 17,
+                                    "source": "./doc/source/alise/api/index.rst",
+                                    "level": 3,
+                                    "type": "ERROR",
+                                    "message": "Unknown directive type \"automodule\".",
+                                    "full_message": "Unknown directive type \"automodule\".\n\n.. automodule:: alise.alise\n   :members:"
+                                }
+                            ]
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": false
                 }
             },
             "coverage": {
-                "percentage": 100,
-                "total_subcriteria": 4,
+                "percentage": 80,
+                "total_subcriteria": 5,
                 "success_subcriteria": 4
             }
         },
@@ -328,7 +570,7 @@
                                         "licensee detect . --confidence 60 --json"
                                     ],
                                     "stdout_text": "{\"licenses\":[{\"key\":\"mit\",\"spdx_id\":\"MIT\",\"meta\":{\"title\":\"MIT License\",\"source\":\"https://spdx.org/licenses/MIT.html\",\"description\":\"A short and simple permissive license with conditions only requiring preservation of copyright and license notices. Licensed works, modifications, and larger works may be distributed under different terms and without source code.\",\"how\":\"Create a text file (typically named LICENSE or LICENSE.txt) in the root of your source code and copy the text of the license into the file. Replace [year] with the current year and [fullname] with the name (or names) of the copyright holders.\",\"using\":{\"Babel\":\"https://github.com/babel/babel/blob/master/LICENSE\",\".NET\":\"https://github.com/dotnet/runtime/blob/main/LICENSE.TXT\",\"Rails\":\"https://github.com/rails/rails/blob/master/MIT-LICENSE\"},\"featured\":true,\"hidden\":false,\"nickname\":null,\"note\":null},\"url\":\"http://choosealicense.com/licenses/mit/\",\"rules\":{\"permissions\":[{\"tag\":\"commercial-use\",\"label\":\"Commercial use\",\"description\":\"The licensed material and derivatives may be used for commercial purposes.\"},{\"tag\":\"modifications\",\"label\":\"Modification\",\"description\":\"The licensed material may be modified.\"},{\"tag\":\"distribution\",\"label\":\"Distribution\",\"description\":\"The licensed material may be distributed.\"},{\"tag\":\"private-use\",\"label\":\"Private use\",\"description\":\"The licensed material may be used and modified in private.\"}],\"conditions\":[{\"tag\":\"include-copyright\",\"label\":\"License and copyright notice\",\"description\":\"A copy of the license and copyright notice must be included with the licensed material.\"}],\"limitations\":[{\"tag\":\"liability\",\"label\":\"Liability\",\"description\":\"This license includes a limitation of liability.\"},{\"tag\":\"warranty\",\"label\":\"Warranty\",\"description\":\"This license explicitly states that it does NOT provide any warranty.\"}]},\"fields\":[{\"name\":\"year\",\"description\":\"The current year\"},{\"name\":\"fullname\",\"description\":\"The full name or username of the repository owner\"}],\"other\":false,\"gpl\":false,\"lgpl\":false,\"cc\":false}],\"matched_files\":[{\"filename\":\"LICENSE\",\"content\":\"MIT License\\n\\nCopyright (c) 2023, Marcus Hardt\\n\\nPermission is hereby granted, free of charge, to any person obtaining a copy\\nof this software and associated documentation files (the \\\"Software\\\"), to deal\\nin the Software without restriction, including without limitation the rights\\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\\ncopies of the Software, and to permit persons to whom the Software is\\nfurnished to do so, subject to the following conditions:\\n\\nThe above copyright notice and this permission notice shall be included in all\\ncopies or substantial portions of the Software.\\n\\nTHE SOFTWARE IS PROVIDED \\\"AS IS\\\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\\nSOFTWARE.\\n\\n\",\"content_hash\":\"4c2c763d64bbc7ef2e58b0ec6d06d90cee9755c9\",\"content_normalized\":\"permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'software'), to deal in the software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software, and to permit persons to whom the software is furnished to do so, subject to the following conditions: the above copyright notice and this permission notice shall be included in all copies or substantial portions of the software. the software is provided 'as is', without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and noninfringement. in no event shall the authors or copyright holders be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the software or the use or other dealings in the software.\",\"matcher\":{\"name\":\"exact\",\"confidence\":100},\"matched_license\":\"MIT\",\"attribution\":\"Copyright (c) 2023, Marcus Hardt\"}]}",
-                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/18/execution/node/61/log?consoleFull"
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/22/execution/node/79/log?consoleFull"
                                 },
                                 "level": "REQUIRED",
                                 "build_repo": "https://github.com/eosc-synergy/alise.assess.sqaaas"
@@ -464,7 +706,7 @@
                                         "licensee detect . --confidence 60 --json"
                                     ],
                                     "stdout_text": "{\"licenses\":[{\"key\":\"mit\",\"spdx_id\":\"MIT\",\"meta\":{\"title\":\"MIT License\",\"source\":\"https://spdx.org/licenses/MIT.html\",\"description\":\"A short and simple permissive license with conditions only requiring preservation of copyright and license notices. Licensed works, modifications, and larger works may be distributed under different terms and without source code.\",\"how\":\"Create a text file (typically named LICENSE or LICENSE.txt) in the root of your source code and copy the text of the license into the file. Replace [year] with the current year and [fullname] with the name (or names) of the copyright holders.\",\"using\":{\"Babel\":\"https://github.com/babel/babel/blob/master/LICENSE\",\".NET\":\"https://github.com/dotnet/runtime/blob/main/LICENSE.TXT\",\"Rails\":\"https://github.com/rails/rails/blob/master/MIT-LICENSE\"},\"featured\":true,\"hidden\":false,\"nickname\":null,\"note\":null},\"url\":\"http://choosealicense.com/licenses/mit/\",\"rules\":{\"permissions\":[{\"tag\":\"commercial-use\",\"label\":\"Commercial use\",\"description\":\"The licensed material and derivatives may be used for commercial purposes.\"},{\"tag\":\"modifications\",\"label\":\"Modification\",\"description\":\"The licensed material may be modified.\"},{\"tag\":\"distribution\",\"label\":\"Distribution\",\"description\":\"The licensed material may be distributed.\"},{\"tag\":\"private-use\",\"label\":\"Private use\",\"description\":\"The licensed material may be used and modified in private.\"}],\"conditions\":[{\"tag\":\"include-copyright\",\"label\":\"License and copyright notice\",\"description\":\"A copy of the license and copyright notice must be included with the licensed material.\"}],\"limitations\":[{\"tag\":\"liability\",\"label\":\"Liability\",\"description\":\"This license includes a limitation of liability.\"},{\"tag\":\"warranty\",\"label\":\"Warranty\",\"description\":\"This license explicitly states that it does NOT provide any warranty.\"}]},\"fields\":[{\"name\":\"year\",\"description\":\"The current year\"},{\"name\":\"fullname\",\"description\":\"The full name or username of the repository owner\"}],\"other\":false,\"gpl\":false,\"lgpl\":false,\"cc\":false}],\"matched_files\":[{\"filename\":\"LICENSE\",\"content\":\"MIT License\\n\\nCopyright (c) 2023, Marcus Hardt\\n\\nPermission is hereby granted, free of charge, to any person obtaining a copy\\nof this software and associated documentation files (the \\\"Software\\\"), to deal\\nin the Software without restriction, including without limitation the rights\\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\\ncopies of the Software, and to permit persons to whom the Software is\\nfurnished to do so, subject to the following conditions:\\n\\nThe above copyright notice and this permission notice shall be included in all\\ncopies or substantial portions of the Software.\\n\\nTHE SOFTWARE IS PROVIDED \\\"AS IS\\\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\\nSOFTWARE.\\n\\n\",\"content_hash\":\"4c2c763d64bbc7ef2e58b0ec6d06d90cee9755c9\",\"content_normalized\":\"permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'software'), to deal in the software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software, and to permit persons to whom the software is furnished to do so, subject to the following conditions: the above copyright notice and this permission notice shall be included in all copies or substantial portions of the software. the software is provided 'as is', without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and noninfringement. in no event shall the authors or copyright holders be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the software or the use or other dealings in the software.\",\"matcher\":{\"name\":\"exact\",\"confidence\":100},\"matched_license\":\"MIT\",\"attribution\":\"Copyright (c) 2023, Marcus Hardt\"}]}",
-                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/18/execution/node/61/log?consoleFull"
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/22/execution/node/79/log?consoleFull"
                                 },
                                 "level": "REQUIRED",
                                 "build_repo": "https://github.com/eosc-synergy/alise.assess.sqaaas"
@@ -600,7 +842,7 @@
                                         "licensee detect . --confidence 60 --json"
                                     ],
                                     "stdout_text": "{\"licenses\":[{\"key\":\"mit\",\"spdx_id\":\"MIT\",\"meta\":{\"title\":\"MIT License\",\"source\":\"https://spdx.org/licenses/MIT.html\",\"description\":\"A short and simple permissive license with conditions only requiring preservation of copyright and license notices. Licensed works, modifications, and larger works may be distributed under different terms and without source code.\",\"how\":\"Create a text file (typically named LICENSE or LICENSE.txt) in the root of your source code and copy the text of the license into the file. Replace [year] with the current year and [fullname] with the name (or names) of the copyright holders.\",\"using\":{\"Babel\":\"https://github.com/babel/babel/blob/master/LICENSE\",\".NET\":\"https://github.com/dotnet/runtime/blob/main/LICENSE.TXT\",\"Rails\":\"https://github.com/rails/rails/blob/master/MIT-LICENSE\"},\"featured\":true,\"hidden\":false,\"nickname\":null,\"note\":null},\"url\":\"http://choosealicense.com/licenses/mit/\",\"rules\":{\"permissions\":[{\"tag\":\"commercial-use\",\"label\":\"Commercial use\",\"description\":\"The licensed material and derivatives may be used for commercial purposes.\"},{\"tag\":\"modifications\",\"label\":\"Modification\",\"description\":\"The licensed material may be modified.\"},{\"tag\":\"distribution\",\"label\":\"Distribution\",\"description\":\"The licensed material may be distributed.\"},{\"tag\":\"private-use\",\"label\":\"Private use\",\"description\":\"The licensed material may be used and modified in private.\"}],\"conditions\":[{\"tag\":\"include-copyright\",\"label\":\"License and copyright notice\",\"description\":\"A copy of the license and copyright notice must be included with the licensed material.\"}],\"limitations\":[{\"tag\":\"liability\",\"label\":\"Liability\",\"description\":\"This license includes a limitation of liability.\"},{\"tag\":\"warranty\",\"label\":\"Warranty\",\"description\":\"This license explicitly states that it does NOT provide any warranty.\"}]},\"fields\":[{\"name\":\"year\",\"description\":\"The current year\"},{\"name\":\"fullname\",\"description\":\"The full name or username of the repository owner\"}],\"other\":false,\"gpl\":false,\"lgpl\":false,\"cc\":false}],\"matched_files\":[{\"filename\":\"LICENSE\",\"content\":\"MIT License\\n\\nCopyright (c) 2023, Marcus Hardt\\n\\nPermission is hereby granted, free of charge, to any person obtaining a copy\\nof this software and associated documentation files (the \\\"Software\\\"), to deal\\nin the Software without restriction, including without limitation the rights\\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\\ncopies of the Software, and to permit persons to whom the Software is\\nfurnished to do so, subject to the following conditions:\\n\\nThe above copyright notice and this permission notice shall be included in all\\ncopies or substantial portions of the Software.\\n\\nTHE SOFTWARE IS PROVIDED \\\"AS IS\\\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\\nSOFTWARE.\\n\\n\",\"content_hash\":\"4c2c763d64bbc7ef2e58b0ec6d06d90cee9755c9\",\"content_normalized\":\"permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'software'), to deal in the software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software, and to permit persons to whom the software is furnished to do so, subject to the following conditions: the above copyright notice and this permission notice shall be included in all copies or substantial portions of the software. the software is provided 'as is', without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and noninfringement. in no event shall the authors or copyright holders be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the software or the use or other dealings in the software.\",\"matcher\":{\"name\":\"exact\",\"confidence\":100},\"matched_license\":\"MIT\",\"attribution\":\"Copyright (c) 2023, Marcus Hardt\"}]}",
-                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/18/execution/node/61/log?consoleFull"
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/22/execution/node/79/log?consoleFull"
                                 },
                                 "level": "REQUIRED",
                                 "build_repo": "https://github.com/eosc-synergy/alise.assess.sqaaas"
@@ -736,7 +978,7 @@
                                         "licensee detect . --confidence 60 --json"
                                     ],
                                     "stdout_text": "{\"licenses\":[{\"key\":\"mit\",\"spdx_id\":\"MIT\",\"meta\":{\"title\":\"MIT License\",\"source\":\"https://spdx.org/licenses/MIT.html\",\"description\":\"A short and simple permissive license with conditions only requiring preservation of copyright and license notices. Licensed works, modifications, and larger works may be distributed under different terms and without source code.\",\"how\":\"Create a text file (typically named LICENSE or LICENSE.txt) in the root of your source code and copy the text of the license into the file. Replace [year] with the current year and [fullname] with the name (or names) of the copyright holders.\",\"using\":{\"Babel\":\"https://github.com/babel/babel/blob/master/LICENSE\",\".NET\":\"https://github.com/dotnet/runtime/blob/main/LICENSE.TXT\",\"Rails\":\"https://github.com/rails/rails/blob/master/MIT-LICENSE\"},\"featured\":true,\"hidden\":false,\"nickname\":null,\"note\":null},\"url\":\"http://choosealicense.com/licenses/mit/\",\"rules\":{\"permissions\":[{\"tag\":\"commercial-use\",\"label\":\"Commercial use\",\"description\":\"The licensed material and derivatives may be used for commercial purposes.\"},{\"tag\":\"modifications\",\"label\":\"Modification\",\"description\":\"The licensed material may be modified.\"},{\"tag\":\"distribution\",\"label\":\"Distribution\",\"description\":\"The licensed material may be distributed.\"},{\"tag\":\"private-use\",\"label\":\"Private use\",\"description\":\"The licensed material may be used and modified in private.\"}],\"conditions\":[{\"tag\":\"include-copyright\",\"label\":\"License and copyright notice\",\"description\":\"A copy of the license and copyright notice must be included with the licensed material.\"}],\"limitations\":[{\"tag\":\"liability\",\"label\":\"Liability\",\"description\":\"This license includes a limitation of liability.\"},{\"tag\":\"warranty\",\"label\":\"Warranty\",\"description\":\"This license explicitly states that it does NOT provide any warranty.\"}]},\"fields\":[{\"name\":\"year\",\"description\":\"The current year\"},{\"name\":\"fullname\",\"description\":\"The full name or username of the repository owner\"}],\"other\":false,\"gpl\":false,\"lgpl\":false,\"cc\":false}],\"matched_files\":[{\"filename\":\"LICENSE\",\"content\":\"MIT License\\n\\nCopyright (c) 2023, Marcus Hardt\\n\\nPermission is hereby granted, free of charge, to any person obtaining a copy\\nof this software and associated documentation files (the \\\"Software\\\"), to deal\\nin the Software without restriction, including without limitation the rights\\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\\ncopies of the Software, and to permit persons to whom the Software is\\nfurnished to do so, subject to the following conditions:\\n\\nThe above copyright notice and this permission notice shall be included in all\\ncopies or substantial portions of the Software.\\n\\nTHE SOFTWARE IS PROVIDED \\\"AS IS\\\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\\nSOFTWARE.\\n\\n\",\"content_hash\":\"4c2c763d64bbc7ef2e58b0ec6d06d90cee9755c9\",\"content_normalized\":\"permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'software'), to deal in the software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software, and to permit persons to whom the software is furnished to do so, subject to the following conditions: the above copyright notice and this permission notice shall be included in all copies or substantial portions of the software. the software is provided 'as is', without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and noninfringement. in no event shall the authors or copyright holders be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the software or the use or other dealings in the software.\",\"matcher\":{\"name\":\"exact\",\"confidence\":100},\"matched_license\":\"MIT\",\"attribution\":\"Copyright (c) 2023, Marcus Hardt\"}]}",
-                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/18/execution/node/61/log?consoleFull"
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/22/execution/node/79/log?consoleFull"
                                 },
                                 "level": "REQUIRED",
                                 "build_repo": "https://github.com/eosc-synergy/alise.assess.sqaaas"
@@ -852,6 +1094,481 @@
                 "success_subcriteria": 4
             }
         },
+        "QC.Met": {
+            "valid": true,
+            "subcriteria": {
+                "QC.Met01": {
+                    "description": "Is the software citable?",
+                    "requirement_level": "SHOULD",
+                    "hint": "The two formats for software citation supported by SQAaaS are: 1) <a href=\"https://codemeta.github.io/\" target=\"_blank\">CodeMeta</a> and 2) <a href=\"https://citation-file-format.github.io/\" target=\"_blank\">Citation File Format (CFF)</a>. While CodeMeta provides you with a more comprehensive description, CFF is a more lightweight, good-enough approach to software (with built-in support by GitHub) citation. Both provide tools (<a href=\"https://codemeta.github.io/codemeta-generator/\" target=\"_blank\">CodeMeta generator</a>, <a href=\"https://citation-file-format.github.io/cff-initializer-javascript/#/\" target=\"_blank\">CFFINIT</a>)to easily generate a working citation file. Once having the file, be sure to add it to the root path of your code repo.",
+                    "evidence": [
+                        {
+                            "valid": true,
+                            "message": "Software metadata successfully validated",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-cff",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "cff-converter-python",
+                                "lang": "Citation File Format",
+                                "version": "2.0.0",
+                                "docker": {
+                                    "dockerfile": "QC.Met/cff-converter-python/Dockerfile",
+                                    "reviewed": "2022-01-19"
+                                },
+                                "ci": {
+                                    "name": "QC.Met codebase.helmholtz.cloud/m-team/tools/alise cff-converter-python",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "cffconvert --validate"
+                                    ],
+                                    "stdout_text": "Citation metadata are valid according to schema version 1.2.0.",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/22/execution/node/88/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/alise.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": "Citation metadata are valid according to schema version 1.2.0."
+                        }
+                    ],
+                    "valid": true
+                }
+            },
+            "coverage": {
+                "percentage": 100,
+                "total_subcriteria": 1,
+                "success_subcriteria": 1
+            }
+        },
+        "QC.Sec": {
+            "valid": true,
+            "subcriteria": {
+                "QC.Sec02": {
+                    "description": "Is the source code passing Static Analysis Security Testing (SAST)?",
+                    "requirement_level": "MUST",
+                    "hint": "Please check & solve the security weaknesses found by the SAST tool",
+                    "evidence": [
+                        {
+                            "valid": true,
+                            "message": "Source code files pass SAST checks performed by bandit tool",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-bandit",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "bandit",
+                                "lang": "Python",
+                                "version": "1.7.4",
+                                "docker": {
+                                    "dockerfile": "QC.Sec/bandit/Dockerfile",
+                                    "reviewed": "2022-03-04"
+                                },
+                                "ci": {
+                                    "name": "QC.Sec codebase.helmholtz.cloud/m-team/tools/alise bandit",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "bandit -f json --quiet  --confidence-level high --severity-level high --recursive ."
+                                    ],
+                                    "stdout_text": "{\n  \"errors\": [],\n  \"generated_at\": \"2024-02-27T09:17:27Z\",\n  \"metrics\": {\n    \"./alise/__init__.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 4,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./alise/cli.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 18,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./alise/config.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 170,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./alise/daemon.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 1,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 1,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 30,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./alise/database.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 44,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./alise/exceptions.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 64,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./alise/logsetup.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 56,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./alise/models.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 4,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 4,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 183,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./alise/oauth2_config.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 1,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 1,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 201,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./alise/parse_args.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 23,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./alise/pathdiversion.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 27,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./alise/router_api.py\": {\n      \"CONFIDENCE.HIGH\": 1,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 1,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 1,\n      \"SEVERITY.MEDIUM\": 1,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 136,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./alise/router_ssr.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 147,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./conftest.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 4,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./doc/source/conf.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 45,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./setup.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 5,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./tests/__init__.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 0,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./tests/cli.py\": {\n      \"CONFIDENCE.HIGH\": 1,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 1,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 3,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./tools/urlencode.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 10,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 2,\n      \"CONFIDENCE.LOW\": 4,\n      \"CONFIDENCE.MEDIUM\": 3,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 3,\n      \"SEVERITY.MEDIUM\": 6,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 1170,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": []\n}",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/22/execution/node/97/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/alise.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {
+                                "errors": [],
+                                "generated_at": "2024-02-27T09:17:27Z",
+                                "metrics": {
+                                    "./alise/__init__.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 4,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./alise/cli.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 18,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./alise/config.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 170,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./alise/daemon.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 1,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 1,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 30,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./alise/database.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 44,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./alise/exceptions.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 64,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./alise/logsetup.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 56,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./alise/models.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 4,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 4,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 183,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./alise/oauth2_config.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 1,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 1,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 201,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./alise/parse_args.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 23,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./alise/pathdiversion.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 27,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./alise/router_api.py": {
+                                        "CONFIDENCE.HIGH": 1,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 1,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 1,
+                                        "SEVERITY.MEDIUM": 1,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 136,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./alise/router_ssr.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 147,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./conftest.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 4,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./doc/source/conf.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 45,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./setup.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 5,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./tests/__init__.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 0,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./tests/cli.py": {
+                                        "CONFIDENCE.HIGH": 1,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 1,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 3,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./tools/urlencode.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 10,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "_totals": {
+                                        "CONFIDENCE.HIGH": 2,
+                                        "CONFIDENCE.LOW": 4,
+                                        "CONFIDENCE.MEDIUM": 3,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 3,
+                                        "SEVERITY.MEDIUM": 6,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 1170,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    }
+                                },
+                                "results": []
+                            }
+                        }
+                    ],
+                    "valid": true
+                }
+            },
+            "coverage": {
+                "percentage": 100,
+                "total_subcriteria": 1,
+                "success_subcriteria": 1
+            }
+        },
+        "QC.Sty": {
+            "valid": false,
+            "subcriteria": {
+                "QC.Sty01": {
+                    "description": "Is the software product following a style standard for Python files?",
+                    "requirement_level": "MUST",
+                    "hint": "Please check & solve the security weaknesses found by the linter tool",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "Python files are not fully compliant with flake8 (pycodestyle, pyflakes, mccabe) standard",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-flake8",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "flake8",
+                                "lang": "Python",
+                                "version": "4.0.1 (mccabe: 0.6.1, pycodestyle: 2.8.0, pyflakes: 2.4.0)",
+                                "docker": {
+                                    "image": "pipelinecomponents/flake8:0.9.0",
+                                    "reviewed": "2022-03-04"
+                                },
+                                "ci": {
+                                    "name": "QC.Sty codebase.helmholtz.cloud/m-team/tools/alise flake8",
+                                    "status": "FAILED",
+                                    "stdout_command": [
+                                        "flake8 ."
+                                    ],
+                                    "stdout_text": "./conftest.py:4:80: E501 line too long (90 > 79 characters)\n./alise/router_api.py:15:1: F811 redefinition of unused 'Request' from line 9\n./alise/router_api.py:15:1: F401 'fastapi.FastAPI' imported but unused\n./alise/router_api.py:15:1: F401 'fastapi.Response' imported but unused\n./alise/router_api.py:22:1: F401 'alise.oauth2_config.get_provider_name_sub_by_identity' imported but unused\n./alise/router_api.py:80:80: E501 line too long (80 > 79 characters)\n./alise/router_api.py:96:80: E501 line too long (81 > 79 characters)\n./alise/router_api.py:97:80: E501 line too long (100 > 79 characters)\n./alise/router_api.py:99:80: E501 line too long (80 > 79 characters)\n./alise/router_api.py:130:80: E501 line too long (80 > 79 characters)\n./alise/router_api.py:131:80: E501 line too long (90 > 79 characters)\n./alise/router_api.py:151:80: E501 line too long (80 > 79 characters)\n./alise/router_api.py:156:80: E501 line too long (89 > 79 characters)\n./alise/router_api.py:171:5: F841 local variable 'user_infos' is assigned to but never used\n./alise/router_api.py:211:80: E501 line too long (92 > 79 characters)\n./alise/pathdiversion.py:13:1: F401 'alise.router_api.router_api' imported but unused\n./alise/pathdiversion.py:24:80: E501 line too long (81 > 79 characters)\n./alise/pathdiversion.py:34:80: E501 line too long (83 > 79 characters)\n./alise/pathdiversion.py:47:80: E501 line too long (80 > 79 characters)\n./alise/pathdiversion.py:49:80: E501 line too long (83 > 79 characters)\n./alise/daemon.py:49:80: E501 line too long (81 > 79 characters)\n./alise/logsetup.py:11:80: E501 line too long (88 > 79 characters)\n./alise/logsetup.py:31:80: E501 line too long (87 > 79 characters)\n./alise/logsetup.py:35:80: E501 line too long (102 > 79 characters)\n./alise/cli.py:8:1: F401 'alise.logsetup' imported but unused\n./alise/cli.py:10:1: F401 'alise.parse_args.args' imported but unused\n./alise/router_ssr.py:31:80: E501 line too long (100 > 79 characters)\n./alise/router_ssr.py:32:80: E501 line too long (94 > 79 characters)\n./alise/router_ssr.py:44:80: E501 line too long (87 > 79 characters)\n./alise/router_ssr.py:55:80: E501 line too long (92 > 79 characters)\n./alise/router_ssr.py:85:80: E501 line too long (83 > 79 characters)\n./alise/router_ssr.py:89:80: E501 line too long (83 > 79 characters)\n./alise/router_ssr.py:92:5: E266 too many leading '#' for block comment\n./alise/router_ssr.py:92:80: E501 line too long (100 > 79 characters)\n./alise/router_ssr.py:100:80: E501 line too long (83 > 79 characters)\n./alise/router_ssr.py:108:80: E501 line too long (88 > 79 characters)\n./alise/router_ssr.py:146:80: E501 line too long (87 > 79 characters)\n./alise/router_ssr.py:159:80: E501 line too long (86 > 79 characters)\n./alise/router_ssr.py:180:80: E501 line too long (83 > 79 characters)\n./alise/parse_args.py:19:80: E501 line too long (92 > 79 characters)\n./alise/parse_args.py:21:80: E501 line too long (87 > 79 characters)\n./alise/parse_args.py:22:80: E501 line too long (89 > 79 characters)\n./alise/parse_args.py:23:80: E501 line too long (82 > 79 characters)\n./alise/config.py:14:1: E266 too many leading '#' for block comment\n./alise/config.py:20:80: E501 line too long (83 > 79 characters)\n./alise/config.py:54:80: E501 line too long (88 > 79 characters)\n./alise/config.py:66:80: E501 line too long (90 > 79 characters)\n./alise/config.py:78:80: E501 line too long (89 > 79 characters)\n./alise/config.py:134:80: E501 line too long (91 > 79 characters)\n./alise/config.py:143:80: E501 line too long (85 > 79 characters)\n./alise/config.py:147:80: E501 line too long (88 > 79 characters)\n./alise/config.py:205:80: E501 line too long (80 > 79 characters)\n./alise/config.py:232:80: E501 line too long (84 > 79 characters)\n./alise/config.py:248:80: E501 line too long (84 > 79 characters)\n./alise/config.py:259:80: E501 line too long (84 > 79 characters)\n./alise/config.py:270:80: E501 line too long (84 > 79 characters)\n./alise/exceptions.py:36:80: E501 line too long (84 > 79 characters)\n./alise/exceptions.py:57:80: E501 line too long (84 > 79 characters)\n./alise/exceptions.py:58:80: E501 line too long (98 > 79 characters)\n./alise/exceptions.py:60:80: E501 line too long (87 > 79 characters)\n./alise/exceptions.py:85:80: E501 line too long (94 > 79 characters)\n./alise/oauth2_config.py:49:80: E501 line too long (99 > 79 characters)\n./alise/oauth2_config.py:71:80: E501 line too long (99 > 79 characters)\n./alise/oauth2_config.py:93:80: E501 line too long (99 > 79 characters)\n./alise/oauth2_config.py:115:80: E501 line too long (99 > 79 characters)\n./alise/oauth2_config.py:172:80: E501 line too long (84 > 79 characters)\n./alise/oauth2_config.py:248:80: E501 line too long (80 > 79 characters)\n./alise/models.py:15:80: E501 line too long (81 > 79 characters)\n./alise/models.py:38:80: E501 line too long (96 > 79 characters)\n./alise/models.py:50:80: E501 line too long (108 > 79 characters)\n./alise/models.py:51:80: E501 line too long (108 > 79 characters)\n./alise/models.py:53:80: E501 line too long (112 > 79 characters)\n./alise/models.py:129:80: E501 line too long (106 > 79 characters)\n./alise/models.py:137:80: E501 line too long (85 > 79 characters)\n./alise/models.py:159:80: E501 line too long (84 > 79 characters)\n./alise/models.py:191:80: E501 line too long (89 > 79 characters)\n./alise/models.py:192:80: E501 line too long (88 > 79 characters)\n./alise/models.py:216:5: E266 too many leading '#' for block comment",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/22/execution/node/106/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/alise.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": "./conftest.py:4:80: E501 line too long (90 > 79 characters)\n./alise/router_api.py:15:1: F811 redefinition of unused 'Request' from line 9\n./alise/router_api.py:15:1: F401 'fastapi.FastAPI' imported but unused\n./alise/router_api.py:15:1: F401 'fastapi.Response' imported but unused\n./alise/router_api.py:22:1: F401 'alise.oauth2_config.get_provider_name_sub_by_identity' imported but unused\n./alise/router_api.py:80:80: E501 line too long (80 > 79 characters)\n./alise/router_api.py:96:80: E501 line too long (81 > 79 characters)\n./alise/router_api.py:97:80: E501 line too long (100 > 79 characters)\n./alise/router_api.py:99:80: E501 line too long (80 > 79 characters)\n./alise/router_api.py:130:80: E501 line too long (80 > 79 characters)\n./alise/router_api.py:131:80: E501 line too long (90 > 79 characters)\n./alise/router_api.py:151:80: E501 line too long (80 > 79 characters)\n./alise/router_api.py:156:80: E501 line too long (89 > 79 characters)\n./alise/router_api.py:171:5: F841 local variable 'user_infos' is assigned to but never used\n./alise/router_api.py:211:80: E501 line too long (92 > 79 characters)\n./alise/pathdiversion.py:13:1: F401 'alise.router_api.router_api' imported but unused\n./alise/pathdiversion.py:24:80: E501 line too long (81 > 79 characters)\n./alise/pathdiversion.py:34:80: E501 line too long (83 > 79 characters)\n./alise/pathdiversion.py:47:80: E501 line too long (80 > 79 characters)\n./alise/pathdiversion.py:49:80: E501 line too long (83 > 79 characters)\n./alise/daemon.py:49:80: E501 line too long (81 > 79 characters)\n./alise/logsetup.py:11:80: E501 line too long (88 > 79 characters)\n./alise/logsetup.py:31:80: E501 line too long (87 > 79 characters)\n./alise/logsetup.py:35:80: E501 line too long (102 > 79 characters)\n./alise/cli.py:8:1: F401 'alise.logsetup' imported but unused\n./alise/cli.py:10:1: F401 'alise.parse_args.args' imported but unused\n./alise/router_ssr.py:31:80: E501 line too long (100 > 79 characters)\n./alise/router_ssr.py:32:80: E501 line too long (94 > 79 characters)\n./alise/router_ssr.py:44:80: E501 line too long (87 > 79 characters)\n./alise/router_ssr.py:55:80: E501 line too long (92 > 79 characters)\n./alise/router_ssr.py:85:80: E501 line too long (83 > 79 characters)\n./alise/router_ssr.py:89:80: E501 line too long (83 > 79 characters)\n./alise/router_ssr.py:92:5: E266 too many leading '#' for block comment\n./alise/router_ssr.py:92:80: E501 line too long (100 > 79 characters)\n./alise/router_ssr.py:100:80: E501 line too long (83 > 79 characters)\n./alise/router_ssr.py:108:80: E501 line too long (88 > 79 characters)\n./alise/router_ssr.py:146:80: E501 line too long (87 > 79 characters)\n./alise/router_ssr.py:159:80: E501 line too long (86 > 79 characters)\n./alise/router_ssr.py:180:80: E501 line too long (83 > 79 characters)\n./alise/parse_args.py:19:80: E501 line too long (92 > 79 characters)\n./alise/parse_args.py:21:80: E501 line too long (87 > 79 characters)\n./alise/parse_args.py:22:80: E501 line too long (89 > 79 characters)\n./alise/parse_args.py:23:80: E501 line too long (82 > 79 characters)\n./alise/config.py:14:1: E266 too many leading '#' for block comment\n./alise/config.py:20:80: E501 line too long (83 > 79 characters)\n./alise/config.py:54:80: E501 line too long (88 > 79 characters)\n./alise/config.py:66:80: E501 line too long (90 > 79 characters)\n./alise/config.py:78:80: E501 line too long (89 > 79 characters)\n./alise/config.py:134:80: E501 line too long (91 > 79 characters)\n./alise/config.py:143:80: E501 line too long (85 > 79 characters)\n./alise/config.py:147:80: E501 line too long (88 > 79 characters)\n./alise/config.py:205:80: E501 line too long (80 > 79 characters)\n./alise/config.py:232:80: E501 line too long (84 > 79 characters)\n./alise/config.py:248:80: E501 line too long (84 > 79 characters)\n./alise/config.py:259:80: E501 line too long (84 > 79 characters)\n./alise/config.py:270:80: E501 line too long (84 > 79 characters)\n./alise/exceptions.py:36:80: E501 line too long (84 > 79 characters)\n./alise/exceptions.py:57:80: E501 line too long (84 > 79 characters)\n./alise/exceptions.py:58:80: E501 line too long (98 > 79 characters)\n./alise/exceptions.py:60:80: E501 line too long (87 > 79 characters)\n./alise/exceptions.py:85:80: E501 line too long (94 > 79 characters)\n./alise/oauth2_config.py:49:80: E501 line too long (99 > 79 characters)\n./alise/oauth2_config.py:71:80: E501 line too long (99 > 79 characters)\n./alise/oauth2_config.py:93:80: E501 line too long (99 > 79 characters)\n./alise/oauth2_config.py:115:80: E501 line too long (99 > 79 characters)\n./alise/oauth2_config.py:172:80: E501 line too long (84 > 79 characters)\n./alise/oauth2_config.py:248:80: E501 line too long (80 > 79 characters)\n./alise/models.py:15:80: E501 line too long (81 > 79 characters)\n./alise/models.py:38:80: E501 line too long (96 > 79 characters)\n./alise/models.py:50:80: E501 line too long (108 > 79 characters)\n./alise/models.py:51:80: E501 line too long (108 > 79 characters)\n./alise/models.py:53:80: E501 line too long (112 > 79 characters)\n./alise/models.py:129:80: E501 line too long (106 > 79 characters)\n./alise/models.py:137:80: E501 line too long (85 > 79 characters)\n./alise/models.py:159:80: E501 line too long (84 > 79 characters)\n./alise/models.py:191:80: E501 line too long (89 > 79 characters)\n./alise/models.py:192:80: E501 line too long (88 > 79 characters)\n./alise/models.py:216:5: E266 too many leading '#' for block comment"
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": true
+                }
+            },
+            "coverage": {
+                "percentage": 0,
+                "total_subcriteria": 1,
+                "success_subcriteria": 0
+            }
+        },
+        "QC.Uni": {
+            "valid": true,
+            "subcriteria": {
+                "QC.Uni01": {
+                    "description": "Are the tests passing through an automated means?",
+                    "requirement_level": "MUST",
+                    "hint": "Please check & solve the failing test cases found by the {tool_name} tool",
+                    "evidence": [
+                        {
+                            "valid": true,
+                            "message": "Test cases are successfully passing using None testing framework",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-jenkins_exit_status",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "pytest",
+                                "lang": "Python",
+                                "version": "7.1.3",
+                                "docker": {
+                                    "image": "eoscsynergy/sqaaas-pytest:7.1.3-alpha",
+                                    "reviewed": "2023-08-09"
+                                },
+                                "ci": {
+                                    "name": "QC.Uni codebase.helmholtz.cloud/m-team/tools/alise pytest",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "pytest tests --json-report  --json-report-indent 4"
+                                    ],
+                                    "stdout_text": "============================= test session starts ==============================\nplatform linux -- Python 3.9.17, pytest-7.1.3, pluggy-1.2.0\nrootdir: /sqaaas-build/codebase.helmholtz.cloud/m-team/tools/alise, configfile: pytest.ini\nplugins: json-report-1.5.0, metadata-3.0.0\ncollected 1 item\n\ntests/cli.py .                                                           [100%]\n\n--------------------------------- JSON report ----------------------------------\nreport saved to: .report.json\n============================== 1 passed in 0.13s ===============================",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/22/execution/node/115/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/alise.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {}
+                        }
+                    ],
+                    "valid": true
+                }
+            },
+            "coverage": {
+                "percentage": 100,
+                "total_subcriteria": 1,
+                "success_subcriteria": 1
+            }
+        },
         "QC.Ver": {
             "valid": true,
             "subcriteria": {
@@ -882,7 +1599,7 @@
                                         "get_git_tags.py"
                                     ],
                                     "stdout_text": "['1.0.0-rc2', '1.0.0-rc1', 'v1.0.0', 'v0.1.2', 'v0.1.1', 'v0.1.0', 'v0.0.1']",
-                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/18/execution/node/70/log?consoleFull"
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/22/execution/node/124/log?consoleFull"
                                 },
                                 "level": "REQUIRED",
                                 "build_repo": "https://github.com/eosc-synergy/alise.assess.sqaaas"
@@ -932,7 +1649,7 @@
                                         "get_git_tags.py"
                                     ],
                                     "stdout_text": "['1.0.0-rc2', '1.0.0-rc1', 'v1.0.0', 'v0.1.2', 'v0.1.1', 'v0.1.0', 'v0.0.1']",
-                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/18/execution/node/70/log?consoleFull"
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/22/execution/node/124/log?consoleFull"
                                 },
                                 "level": "REQUIRED",
                                 "build_repo": "https://github.com/eosc-synergy/alise.assess.sqaaas"
@@ -982,7 +1699,7 @@
                                         "get_git_tags.py"
                                     ],
                                     "stdout_text": "['1.0.0-rc2', '1.0.0-rc1', 'v1.0.0', 'v0.1.2', 'v0.1.1', 'v0.1.0', 'v0.0.1']",
-                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/18/execution/node/70/log?consoleFull"
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/22/execution/node/124/log?consoleFull"
                                 },
                                 "level": "REQUIRED",
                                 "build_repo": "https://github.com/eosc-synergy/alise.assess.sqaaas"
@@ -1012,94 +1729,6 @@
                 "total_subcriteria": 3,
                 "success_subcriteria": 2
             }
-        },
-        "QC.Met": {
-            "valid": false,
-            "subcriteria": {
-                "QC.Met01": {
-                    "description": "Is the software citable?",
-                    "valid": false,
-                    "hint": "The two formats for software citation supported by SQAaaS are: 1) <a href=\"https://codemeta.github.io/\" target=\"_blank\">CodeMeta</a> and 2) <a href=\"https://citation-file-format.github.io/\" target=\"_blank\">Citation File Format (CFF)</a>. While CodeMeta provides you with a more comprehensive description, CFF is a more lightweight, good-enough approach to software (with built-in support by GitHub) citation. Both provide tools (<a href=\"https://codemeta.github.io/codemeta-generator/\" target=\"_blank\">CodeMeta generator</a>, <a href=\"https://citation-file-format.github.io/cff-initializer-javascript/#/\" target=\"_blank\">CFFINIT</a>)to easily generate a working citation file. Once having the file, be sure to add it to the root path of your code repo.",
-                    "evidence": [
-                        {
-                            "valid": false,
-                            "message": "No matching files found for language <CodeMeta> in repository searching by extensions or filenames\nNo matching files found for language <Citation File Format> in repository searching by extensions or filenames"
-                        }
-                    ],
-                    "required_for_next_level_badge": true
-                }
-            },
-            "coverage": {
-                "percentage": 0,
-                "total_subcriteria": 1,
-                "success_subcriteria": 0
-            }
-        },
-        "QC.Sec": {
-            "valid": false,
-            "subcriteria": {
-                "QC.Sec02": {
-                    "description": "Is the source code passing Static Analysis Security Testing (SAST)?",
-                    "valid": false,
-                    "hint": "Please check & solve the security weaknesses found by the SAST tool",
-                    "evidence": [
-                        {
-                            "valid": false,
-                            "message": "No matching files found for language <Python> in repository searching by extensions or filenames\nNo matching files found for language <Go> in repository searching by extensions or filenames"
-                        }
-                    ],
-                    "required_for_next_level_badge": false
-                }
-            },
-            "coverage": {
-                "percentage": 0,
-                "total_subcriteria": 1,
-                "success_subcriteria": 0
-            }
-        },
-        "QC.Sty": {
-            "valid": false,
-            "subcriteria": {
-                "QC.Sty01": {
-                    "description": "Is the software product following a style standard for {lang_name} files?",
-                    "valid": false,
-                    "hint": "Please check & solve the security weaknesses found by the linter tool",
-                    "evidence": [
-                        {
-                            "valid": false,
-                            "message": "No matching files found for language <Dockerfile> in repository searching by extensions or filenames\nNo matching files found for language <JSON> in repository searching by extensions or filenames\nNo matching files found for language <Python> in repository searching by extensions or filenames\nNo matching files found for language <Go> in repository searching by extensions or filenames\nNo matching files found for language <Ruby> in repository searching by extensions or filenames\nNo matching files found for language <Java> in repository searching by extensions or filenames"
-                        }
-                    ],
-                    "required_for_next_level_badge": false
-                }
-            },
-            "coverage": {
-                "percentage": 0,
-                "total_subcriteria": 1,
-                "success_subcriteria": 0
-            }
-        },
-        "QC.Uni": {
-            "valid": false,
-            "subcriteria": {
-                "QC.Uni01": {
-                    "description": "Are the tests passing through an automated means?",
-                    "valid": false,
-                    "hint": "Please check & solve the failing test cases found by the {tool_name} tool",
-                    "evidence": [
-                        {
-                            "valid": false,
-                            "message": "No matching files found for language <Python> in repository searching by extensions or filenames"
-                        }
-                    ],
-                    "required_for_next_level_badge": false
-                }
-            },
-            "coverage": {
-                "percentage": 0,
-                "total_subcriteria": 1,
-                "success_subcriteria": 0
-            }
         }
     },
     "badge": {
@@ -1126,10 +1755,9 @@
                         "QC.Ver",
                         "QC.Doc"
                     ],
-                    "missing": [
-                        "QC.Met"
-                    ],
+                    "missing": [],
                     "fulfilled": [
+                        "QC.Met",
                         "QC.Acc",
                         "QC.Lic",
                         "QC.Ver",
@@ -1148,14 +1776,14 @@
                         "QC.Doc"
                     ],
                     "missing": [
-                        "QC.Met",
-                        "QC.Sec",
-                        "QC.Uni",
                         "QC.Sty"
                     ],
                     "fulfilled": [
+                        "QC.Met",
                         "QC.Acc",
                         "QC.Lic",
+                        "QC.Sec",
+                        "QC.Uni",
                         "QC.Ver",
                         "QC.Doc"
                     ]
@@ -1163,31 +1791,31 @@
             },
             "data": {
                 "entityType": "Assertion",
-                "entityId": "dx3kRa9TScmjJeyRxUSYow",
-                "openBadgeId": "https://api.eu.badgr.io/public/assertions/dx3kRa9TScmjJeyRxUSYow",
-                "createdAt": "2025-01-24T11:24:54.839598743Z",
+                "entityId": "nY3TBi82TQGcyxdq2QGb3w",
+                "openBadgeId": "https://api.eu.badgr.io/public/assertions/nY3TBi82TQGcyxdq2QGb3w",
+                "createdAt": "2025-01-24T11:28:09.538543962Z",
                 "createdBy": "aS1lWKgIR4u8bGjPZUzAyg",
-                "badgeclass": "UOmgyH_TSpSPXiro4aNBoQ",
-                "badgeclassOpenBadgeId": "https://api.eu.badgr.io/public/badges/UOmgyH_TSpSPXiro4aNBoQ",
+                "badgeclass": "IDUsZJpNQPuiJpPwmJ8iJw",
+                "badgeclassOpenBadgeId": "https://api.eu.badgr.io/public/badges/IDUsZJpNQPuiJpPwmJ8iJw",
                 "issuer": "aS1lWKgIR4u8bGjPZUzAyg",
                 "issuerOpenBadgeId": "https://api.eu.badgr.io/public/issuers/aS1lWKgIR4u8bGjPZUzAyg",
-                "image": "https://api.eu.badgr.io/public/assertions/dx3kRa9TScmjJeyRxUSYow/image",
+                "image": "https://api.eu.badgr.io/public/assertions/nY3TBi82TQGcyxdq2QGb3w/image",
                 "recipient": {
-                    "identity": "sha256$4ce4cf5c34a9ae5c42ff0ff21ee4bf6d483c61f03b38a2697a1d0b291b021fa6",
+                    "identity": "sha256$fb06235b54ae864c711e5526e5db6a287b2e7585095fbf39465acd2d106918e5",
                     "hashed": true,
                     "type": "url",
-                    "salt": "rstG4N3g2l1SYbLq",
+                    "salt": "W55utHy7luBPWMZi",
                     "plaintextIdentity": "https://codebase.helmholtz.cloud/m-team/tools/alise"
                 },
-                "issuedOn": "2025-01-24T11:24:54.839599571Z",
+                "issuedOn": "2025-01-24T11:28:09.538544532Z",
                 "narrative": "SQAaaS assessment results for repository https://codebase.helmholtz.cloud/m-team/tools/alise (commit: cfaa2f4df4aeda0d614a5411d6077251204b3878, branch/tag: master)",
                 "evidence": [
                     {
-                        "url": "https://github.com/EOSC-synergy/alise.assess.sqaaas/commit/674fff31bb47a5f426d513987ca24ba7659bd70f",
+                        "url": "https://github.com/EOSC-synergy/alise.assess.sqaaas/commit/0c59e7b1009c8f94b74c024b9f04abe363286c45",
                         "narrative": "SQAaaS build repository"
                     },
                     {
-                        "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/18/",
+                        "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/alise.assess.sqaaas/job/master/22/",
                         "narrative": "Build page from Jenkins CI"
                     }
                 ],
@@ -1197,10 +1825,10 @@
                 "expires": null,
                 "extensions": {},
                 "assertionRef": {
-                    "assertionUrl": "https://api.eu.badgr.io/public/assertions/dx3kRa9TScmjJeyRxUSYow"
+                    "assertionUrl": "https://api.eu.badgr.io/public/assertions/nY3TBi82TQGcyxdq2QGb3w"
                 },
                 "badgeRef": {
-                    "badgeUrl": "https://api.eu.badgr.io/public/badges/UOmgyH_TSpSPXiro4aNBoQ"
+                    "badgeUrl": "https://api.eu.badgr.io/public/badges/IDUsZJpNQPuiJpPwmJ8iJw"
                 },
                 "issuerRef": {
                     "issuerUrl": "https://api.eu.badgr.io/public/issuers/aS1lWKgIR4u8bGjPZUzAyg"
@@ -1209,10 +1837,10 @@
                 "source": "local",
                 "sourceUrl": null,
                 "originalJson": null,
-                "imagePath": "uploads/badges/assertion-dx3kRa9TScmjJeyRxUSYow.png"
+                "imagePath": "uploads/badges/assertion-nY3TBi82TQGcyxdq2QGb3w.png"
             },
-            "share": "<!--\nSPDX-FileCopyrightText: Copyright contributors to the Software Quality Assurance as a Service (SQAaaS) project <sqaaas@ibergrid.eu>\nSPDX-FileContributor: Pablo Orviz <orviz@ifca.unican.es>\n\nSPDX-License-Identifier: GPL-3.0-only\n-->\n\n<blockquote class=\"badgr-badge\" style=\"font-family: Helvetica, Roboto, &quot;Segoe UI&quot;, Calibri, sans-serif;\"><a href=\"https://api.eu.badgr.io/public/assertions/dx3kRa9TScmjJeyRxUSYow?identity__url=https%3A//github.com/EOSC-synergy/alise.assess.sqaaas/commit/674fff31bb47a5f426d513987ca24ba7659bd70f\"><img width=\"120px\" height=\"120px\" src=\"https://api.eu.badgr.io/public/assertions/dx3kRa9TScmjJeyRxUSYow/image\"></a><script async=\"async\" src=\"https://eu.badgr.com/assets/widgets.bundle.js\"></script></blockquote>",
-            "verification_url": "https://badgecheck.io/?url=https%3A%2F%2Fapi.eu.badgr.io%2Fpublic%2Fassertions%2Fdx3kRa9TScmjJeyRxUSYow?identity__url=https%3A%2F%2Fgithub.com%2FEOSC-synergy%2Falise.assess.sqaaas%2Fcommit%2F674fff31bb47a5f426d513987ca24ba7659bd70f&amp;identity__url=https%3A%2F%2Fgithub.com%2FEOSC-synergy%2Falise.assess.sqaaas%2Fcommit%2F674fff31bb47a5f426d513987ca24ba7659bd70f"
+            "share": "<!--\nSPDX-FileCopyrightText: Copyright contributors to the Software Quality Assurance as a Service (SQAaaS) project <sqaaas@ibergrid.eu>\nSPDX-FileContributor: Pablo Orviz <orviz@ifca.unican.es>\n\nSPDX-License-Identifier: GPL-3.0-only\n-->\n\n<blockquote class=\"badgr-badge\" style=\"font-family: Helvetica, Roboto, &quot;Segoe UI&quot;, Calibri, sans-serif;\"><a href=\"https://api.eu.badgr.io/public/assertions/nY3TBi82TQGcyxdq2QGb3w?identity__url=https%3A//github.com/EOSC-synergy/alise.assess.sqaaas/commit/0c59e7b1009c8f94b74c024b9f04abe363286c45\"><img width=\"120px\" height=\"120px\" src=\"https://api.eu.badgr.io/public/assertions/nY3TBi82TQGcyxdq2QGb3w/image\"></a><script async=\"async\" src=\"https://eu.badgr.com/assets/widgets.bundle.js\"></script></blockquote>",
+            "verification_url": "https://badgecheck.io/?url=https%3A%2F%2Fapi.eu.badgr.io%2Fpublic%2Fassertions%2FnY3TBi82TQGcyxdq2QGb3w?identity__url=https%3A%2F%2Fgithub.com%2FEOSC-synergy%2Falise.assess.sqaaas%2Fcommit%2F0c59e7b1009c8f94b74c024b9f04abe363286c45&amp;identity__url=https%3A%2F%2Fgithub.com%2FEOSC-synergy%2Falise.assess.sqaaas%2Fcommit%2F0c59e7b1009c8f94b74c024b9f04abe363286c45"
         }
     }
 }
