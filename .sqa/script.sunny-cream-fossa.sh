@@ -5,5 +5,5 @@
 
 (
 cd codebase.helmholtz.cloud/m-team/tools/alise &&
-    mdl --json .
+    git rev-parse --is-inside-work-tree 
 )

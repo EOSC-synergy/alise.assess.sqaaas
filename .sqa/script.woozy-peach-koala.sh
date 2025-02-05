@@ -5,5 +5,5 @@
 
 (
 cd codebase.helmholtz.cloud/m-team/tools/alise &&
-    git rev-parse --is-inside-work-tree
+    licensee detect . --confidence 60 --json 
 )

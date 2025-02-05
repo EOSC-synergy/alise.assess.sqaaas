@@ -5,5 +5,5 @@
 
 (
 cd codebase.helmholtz.cloud/m-team/tools/alise &&
-    licensee detect . --confidence 60 --json
+    pytest  --json-report  --json-report-indent 4
 )

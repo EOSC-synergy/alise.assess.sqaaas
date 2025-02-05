@@ -5,5 +5,5 @@
 
 (
 cd codebase.helmholtz.cloud/m-team/tools/alise &&
-    cffconvert --validate
+    mdl --json  .
 )

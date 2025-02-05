@@ -5,5 +5,5 @@
 
 (
 cd codebase.helmholtz.cloud/m-team/tools/alise &&
-    pytest tests --json-report  --json-report-indent 4
+    cffconvert --validate 
 )
